@@ -7,3 +7,4 @@ django-widget_tweaks
 sendgrid
 xlwt
 django-rest_framework
+django-environ

@@ -1,5 +1,11 @@
 import os
 
+import environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -156,13 +162,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 APPEND_SLASH = True
 
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+# SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+# SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = env('SENDGRID_API_KEY')
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'noreply@varchas2020.org'
+DEFAULT_FROM_EMAIL = 'noreply@mymtasmtp.ml'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
