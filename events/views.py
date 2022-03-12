@@ -1,9 +1,9 @@
 from django.views.generic import FormView
 from .forms import MatchForm
-from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess
+from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess, Squash
 from django.contrib import messages
 from rest_framework import viewsets
-from .serializers import CricketSerializer, FootballSerializer, VolleyballSerializer, ChessSerializer
+from .serializers import CricketSerializer, FootballSerializer, VolleyballSerializer, ChessSerializer, SquashSerializer
 from rest_framework import permissions
 
 
@@ -70,4 +70,10 @@ class VolleyballViewSet(viewsets.ModelViewSet):
 class ChessViewSet(viewsets.ModelViewSet):
     queryset = Chess.objects.all()
     serializer_class = ChessSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+
+class SquashViewSet(viewsets.ModelViewSet):
+    queryset = Squash.objects.all()
+    serializer_class = SquashSerializer
     permission_classes = [permissions.IsAdminUser]
