@@ -65,7 +65,6 @@ class RegisterForm(UserCreationForm):
             raise forms.ValidationError('This email is already registered')
         return self.data['email']
 
-
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
         self.fields['email'].widget.attrs['icon_name'] = "fa fa-envelope"

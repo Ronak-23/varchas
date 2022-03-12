@@ -25,6 +25,7 @@ class ChessSerializer(serializers.HyperlinkedModelSerializer):
         model = Chess
         fields = ['match', 'score1', 'score2', ]
 
+
 class SquashSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Squash

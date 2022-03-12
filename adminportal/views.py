@@ -33,7 +33,6 @@ def dashboardUsers(request):
     return render(request, 'adminportal/dashboardUsers.html', {'users': users})
 
 
-
 @login_required(login_url='login')
 def downloadExcel(request):
     response = HttpResponse(content_type='application/ms-excel')

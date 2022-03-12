@@ -77,4 +77,3 @@ class SquashViewSet(viewsets.ModelViewSet):
     queryset = Squash.objects.all()
     serializer_class = SquashSerializer
     permission_classes = [permissions.IsAdminUser]
-    
