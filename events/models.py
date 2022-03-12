@@ -164,3 +164,4 @@ class Squash(models.Model):
 
     def qscore(self):
         return [self.t1s1, self.t1s2, self.t1s3, self.t1s4, self.t1s5, self.t2s1, self.t2s2, self.t2s3, self.t2s4, self.t2s5]
+        

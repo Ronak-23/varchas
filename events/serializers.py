@@ -28,4 +28,4 @@ class ChessSerializer(serializers.HyperlinkedModelSerializer):
 class SquashSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Squash
-        fields = ['match', 't1s1', 't2s1', 't1s2', 't2s2','t1s3', 't2s3', 't1s4', 't2s4','t1s5', 't2s5', 't1sw', 't2sw']
+        fields = ['match', 't1s1', 't2s1', 't1s2', 't2s2', 't1s3', 't2s3', 't1s4', 't2s4', 't1s5', 't2s5', 't1sw', 't2sw']
