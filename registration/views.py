@@ -1,5 +1,5 @@
 from django.views.generic import CreateView
-from .forms import CampusAmbassadorForm, TeamRegistrationForm, RemovePlayerForm
+from .forms import TeamRegistrationForm, RemovePlayerForm
 from django.shortcuts import get_object_or_404
 from accounts.models import UserProfile
 from django.http import HttpResponse
@@ -8,12 +8,6 @@ from .models import TeamRegistration
 from django.core.mail import send_mail
 from django.views.generic import FormView
 from django.contrib.auth.models import User
-
-
-class CampusAmbassadorRegisterView(CreateView):
-    template_name = 'registration/ca_reg.html'
-    success_url = '/'
-    form_class = CampusAmbassadorForm
 
 
 class TeamFormationView(CreateView):

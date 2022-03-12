@@ -64,9 +64,8 @@ class email(models.Model):
         ('7', 'Table Tenis'),
         ('8', 'Tenis'),
         ('9', 'Volleyball'),
-        ('10', 'CA'),
-        ('11', 'All Teams'),
-        ('12', 'All Users'),
+        ('10', 'All Teams'),
+        ('11', 'All Users'),
     )
     recipient = models.CharField(max_length=3, choices=RECIPIENT_CHOICES)
     subject = models.CharField(max_length=64)

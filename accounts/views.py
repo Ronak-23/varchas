@@ -36,8 +36,7 @@ class RegisterView(CreateView):
         userprofile = UserProfile.objects.create(user=user, gender=kwargs['gender'], phone=kwargs['phone'],
                                                  college=kwargs['college'],
                                                  state=kwargs['state'],
-                                                 accommodation_required=kwargs['accommodation_required'],
-                                                 referral=kwargs['referred_by']
+                                                 accommodation_required=kwargs['accommodation_required']
                                                  )
         userprofile.save()
 

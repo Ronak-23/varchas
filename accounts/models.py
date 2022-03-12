@@ -66,7 +66,6 @@ class UserProfile(models.Model):
     amount_required = models.PositiveSmallIntegerField(default=0, blank=True)
     amount_paid = models.PositiveSmallIntegerField(default=0, blank=True)
     no_of_days = models.CharField(max_length=1, choices=DAYS_CHOICES)
-    referral = models.CharField(max_length=7, blank=True, null=True)
     id_issued = models.BooleanField(default=False)
     qr_code = models.ImageField(upload_to='qr_code', blank=True, null=True)
     teamId = models.ForeignKey("registration.TeamRegistration", on_delete=models.SET_NULL, null=True, related_name="member")

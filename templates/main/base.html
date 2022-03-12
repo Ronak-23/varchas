@@ -100,15 +100,8 @@
 
                         {% endif %}
                     {% else %}
-                        <li class="topbar-styles"><a>Register</a>
-                            <ul>
-                                <a href="{% url 'accounts:register' %}">
-                                    <li class="topbar-styles">Register as Player</li>
-                                </a>
-                                <a href="{% url 'registration:ca' %}">
-                                    <li class="topbar-styles">Campus Ambassador</li>
-                                </a>
-                            </ul>
+                        <li class="topbar-styles">
+                            <a href="{% url 'accounts:register' %}">Register</a>
                         </li>
 
                     {% endif %}
@@ -124,10 +117,6 @@
                                 <ul>
                                     <a href="{% url 'accounts:profile' %}">
                                         <li class="topbar-styles">Profile</li>
-                                    </a>
-                                    <a href="{% url 'registration:ca' %}"
-                                       >
-                                        <li class="topbar-styles">Campus Ambassador</li>
                                     </a>
                                     <a href="{% url 'logout' %}">
                                         <li class="topbar-styles">Logout</li>
@@ -204,7 +193,6 @@
                             <li><a href="{% url 'login' %}">Login</a></li>
                             <li><a herf="{% url 'accounts:register' %}">Register</a>
                             </li>
-                            <li><a href="{% url 'registration:ca' %}">CA</a></li>
                         {% endif %}
                     </ul>
                 </nav>

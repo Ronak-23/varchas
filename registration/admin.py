@@ -1,13 +1,5 @@
 from django.contrib import admin
-from .models import CampusAmbassador, TeamRegistration
-
-
-class CampusAmbassadorAdmin(admin.ModelAdmin):
-    class Meta:
-        model = CampusAmbassador
-
-
-admin.site.register(CampusAmbassador, CampusAmbassadorAdmin)
+from .models import TeamRegistration
 
 
 class TeamAdmin(admin.ModelAdmin):
