@@ -1383,7 +1383,7 @@ section {
 
 100% {
     position: absolute;
-    left: 52%;
+    left: 55%;
     top: 100%;
     opacity: 1;
 }
@@ -1393,14 +1393,14 @@ section {
 0% {
     position: absolute;
     top: 200%;
-    left: 45%;
+    left: 55%;
     opacity: 0;
 }
 
 65% {
     position: absolute;
     top: 200%;
-    left: 55%;
+    left: 60%;
     opacity: 0;
 }
 
@@ -1413,7 +1413,7 @@ section {
 
 100% {
     position: absolute;
-    left: 63%;
+    left: 65%;
     top: 100%;
     opacity: 1;
 }
@@ -1744,7 +1744,7 @@ ul li ul li a {
 
       100% {
         position: absolute;
-        left: 52%;
+        left: 55%;
         top: -200%;
         opacity: 1;
       }

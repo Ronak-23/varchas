@@ -58,10 +58,10 @@
   animation-fill-mode:forwards;">
       <div class="row" style="padding: 0">
         <div style="padding: 0 4vh 2vh 4vh">
-        <div class="button" onclick="alert('varchas is postponed new dates will be anounced soon.')" >
-{#            <a href="{% if userprofile.teamId != None %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">#}
-{#                {% if userprofile.teamId != None %}VIEW TEAM{% else %}JOIN TEAM{% endif %}#}
-{#            </a>#}
+        <div class="button">
+            <a href="{% if userprofile.teamId != None %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">
+           {% if userprofile.teamId != None %}VIEW TEAM{% else %}JOIN TEAM{% endif %}
+           </a>
             <a href="#">
                 {% if userprofile.teamId != None %}VIEW TEAM{% else %}JOIN TEAM{% endif %}
             </a>
@@ -70,8 +70,7 @@
         {% if userprofile.teamId == None %}
         <div style="padding: 0 4vh 2vh 4vh">
          <div class="button">
-{#             <a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>#}
-             <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">CREATE A TEAM</a></div>
+             <a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>
         </div>
 
        {% endif %}
@@ -83,69 +82,6 @@
   </div>
   <!-- Footer -->
 
-  <footer class="footer">
-    <div class="footer_content">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class=" text-center" style="font-size: 7vh;color: white">Contact Us</div>
-          </div>
-        </div>
-        <div class="row footer_row">
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-phone fa-4x" style="color: white"></i></div>
-              </div>
-              <div class="footer_title">talk to us</div>
-              <div class="footer_list">
-                <ul>
-                  <li>+91 87664 43560 - ASHISH CHAVHAN</li>
-                  <li>+91 83404 60791 -  MANISH</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-envelope fa-4x" style="margin-left: -1vh;margin-top:-1vh;color: white"></i></div>
-              </div>
-              <div class="footer_title">e-mail</div>
-              <div class="footer_list">
-                <ul>
-                  <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a></li>
-                  <li><a href="mailto:pr_varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-map-marker fa-4x" style="color: white;margin-top: -1vh"></i></div>
-              </div>
-              <div class="footer_title">location</div>
-              <div class="footer_list">
-                <ul>
-                  <li>Indian Institute of Technology</li>
-                  <li>JODHPUR</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer_bar d-flex flex-row align-items-center justify-content-center">
-      <div class="copyright">
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-        All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-              href="https://colorlib.com" target="_blank">Varchas Web D Team</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-    </div>
-  </footer>
   </div>
 
 
@@ -165,4 +101,3 @@
   </body>
   </html>
 {% endblock %}
-
