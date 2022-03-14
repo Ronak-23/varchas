@@ -102,7 +102,7 @@ class sendMail(CreateView):
                 if team.captian:
                     message = '''<!DOCTYPE html> <html><body><p>{}</p>
                               <h3>{}</h3></body></html>'''.format(data['message'], "Your Team ID:" + team.teamId)
-                    send_mail(data['subject'], message, 'noreply@varchas2020.org',
+                    send_mail(data['subject'], message, 'noreply@varchas22.in',
                               [team.captian.user.email], fail_silently=False, html_message=message)
             return super(sendMail, self).form_valid(form)
         else:
@@ -111,8 +111,8 @@ class sendMail(CreateView):
                 recipient.append(user.user.email)
                 message = '''<!DOCTYPE html> <html><body>Hi {}!<br><p>{}</p>
                              <p>Team Varchas</p></body></html>'''.format(user.user.first_name, data['message'])
-                send_mail(data['subject'], message, 'noreply@varchas2020.org',
+                send_mail(data['subject'], message, 'noreply@varchas22.in',
                           [user.user.email], fail_silently=False, html_message=message)
             return super(sendMail, self).form_valid(form)
-        send_mail(data['subject'], data['message'], 'noreply@varchas2020.org', recipient, fail_silently=False)
+        send_mail(data['subject'], data['message'], 'noreply@varchas22.in', recipient, fail_silently=False)
         return super(sendMail, self).form_valid(form)

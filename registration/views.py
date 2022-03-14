@@ -32,10 +32,9 @@ class TeamFormationView(CreateView):
             user.teamId = team
             user.save()
 
-            message = '''<!DOCTYPE html> <html><body>Hi {}!<br>You have successfully registered for Varchas2020.<br>Your teamId is: <b>{}</b><br>
-                          Check your team details here: <a href="http://varchas2020.org/account/myTeam">varchas2020.org/accou
-                          nt/myTeam</a><p>Get Your Game On.</p></body></html>'''.format(user.user.first_name, user.teamId)
-            send_mail('Varchas Team Created', message, 'noreply@varchas2020.org', [team.captian.user.email],
+            message = '''<!DOCTYPE html> <html><body>Hi {}!<br>You have successfully registered for Varchas 2022.<br>Your Team Id is: <b>{}</b><br>
+                          Check your team details here: <a href="http://varchas22.in/account/myTeam">varchas22.in/account/myTeam</a><p>Get Your Game On.</p></body></html>'''.format(user.user.first_name, user.teamId)
+            send_mail('Varchas Team Created', message, 'noreply@varchas22.in', [team.captian.user.email],
                       fail_silently=False, html_message=message)
 
             return super(TeamFormationView, self).form_valid(form)
