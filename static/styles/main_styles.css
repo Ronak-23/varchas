@@ -474,7 +474,7 @@ section {
 }
 
 .main_nav ul li a {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     color: #f4f4f4;
     text-transform: uppercase;
@@ -482,7 +482,7 @@ section {
 
 .main_nav ul li a:hover,
 .main_nav ul li.active a {
-    color: #ff7315;
+    color: purple;
 }
 
 .header_social {
@@ -1555,11 +1555,11 @@ a li {
     color: white;
 }
 
-li.topbar-styles:hover {
+/* a.topbar-styles:hover {
     background: #fff;
     color: darkorange;
     cursor: pointer;
-}
+} */
 
 ul li ul {
     background: darkorange;

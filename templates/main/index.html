@@ -7,484 +7,420 @@
   
 </style>
 <!-- Home -->
-
-<header>
-  <div class="vid-container">
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" class="video">
-      <source src="{% static 'video/landing.mp4'%}" type="video/mp4">
-    </video>
-  </div>
-  <div class="overlay">
-
-    <div class="container" style="margin-top: 35vh;">
-      <div class="row">
-        <div class="col">
-
-          <div style="color: blanchedalmond;">
-            <h1><span class="second-text">Varchas</span></h1>
-            <div class="get-your-game-on">
-              <span class="first-text-get">GET</span>
-              <span class="first-text-your" style="color: #fff;"> YOUR</span>
-              <span class="first-text-game"> GAME</span>
-              <span class="first-text-on" style="color: #fff;"> ON</span>
-            </div>
-            <div class="get-your-game-on" style="padding: 5vh 0 4vh 0;">
-            </div>
-          </div>
-        </div>
+   <div class="wrap">
+    <!-- <div class="navbar">
+      <div class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="" />
+        <h5>VARCHAS</h5>
       </div>
-
+      <div class="menu">
+        <h5>HOME</h5>
+        <h5>CORE TEAM</h5>
+        <h5>REGISTER</h5>
+      </div>
+      <div class="login">
+        <h5>LOGIN</h5>
+      </div> -->
     </div>
-  </div>
+    
+    <div class="wrapper">
+      <div class="image"><img src="{% static 'images/mountain.png' %}" alt="" /></div>
 
-</header>
-<!-- About -->
-
-<div id="about" class="about" style="margin-top: -10px;background-color: #232020">
-  <div class="container">
-    <div class="row">
-
-      <!-- About Content -->
-      <div class="col-lg-8">
-        <div class="about_content">
-          <div class="section_title_container wow fadeInUp animated">
-            <div class="section_title">
-              <h1 style="color: white">about varchas</h1>
-            </div>
-          </div>
-          <div class="about_text wow fadeInUp">
-            <p>“Varchas” is the annual sports fest of IIT Jodhpur. Being the largest sports fest of
-              Rajasthan, Varchas celebrates the spirit of sportsmanship and serves as a
-              platform to showcase the countless hours of perspiration put in by the teams to
-              achieve excellence in their sport. Since its inception in 2011 the grandeur of
-              Varchas has spread far and wide across the best colleges of India.</p>
-          </div><br>
-          <div class="row wow fadeInUp">
-            {% if user.is_authenticated %}
+      <div class="sunout">
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+        <div class="sunin"></div>
+      </div>
+      <div class="out">
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+        <div class="in"></div>
+      </div>
+      <div class="title">
+        <h1 class="main">VARCHAS</h1>
+        <h3>Vigour | Valour | Victory</h3>
+      </div>
+    </div>
+    <div class="about">
+      <h1>ABOUT VARCHAS</h1>
+      <p>
+        “Varchas” is the annual sports fest of IIT Jodhpur. Being the largest
+        sports fest of Rajasthan, Varchas celebrates the spirit of
+        sportsmanship and serves as a platform to showcase the countless hours
+        of perspiration put in by the teams to achieve excellence in their
+        sport. Since its inception in 2011 the grandeur of Varchas has spread
+        far and wide across the best colleges of India.
+      </p>
+      <div class="buttons">
+        {% if user.is_authenticated %}
             {% if userprofile.teamId != None %}
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:myTeam' %}">Team Details</a>
-            </div>
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:profile' %}">View Profile</a>
-            </div>
-            {% else %}
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:joinTeam' %}" >Join Team</a>
-            </div>
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'registration:team' %}" >Create Team</a>
-            </div>
+            <a href="{% url 'accounts:myTeam' %}"> <button>Team Details</button></a>
+            <a href="{% url 'accounts:joinTeam' %}" ><button>Join Team</button></a>
+           <a href="{% url 'registration:team' %}" ><button>Create Team</button></a>
             {% endif %}
             {% else %}
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:register' %}" >Register as
-                Player</a>
-            </div>
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'registration:ca' %}" >Register as CA</a>
+            <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>
+            <a><button>Instructions</button></a></div>
             </div>
             {% endif %}
-            <div class="button cta_button" style="margin:10px"><a   >Instructions</a></div>
-          </div>
-
-        </div>
-
+        
+        
+        
       </div>
-      
-      <div id="popup1" class="overlay-pop" style="z-index: 10000;">
-        <div class="popup">
-          <h3>Step by step guide</h3><br>
-          <a class="close" href="#about">&times;</a>
-          <div class="content">
-            <ol>
-              <li dir="ltr">
-                <p dir="ltr">
-                  Register to create an account.
-                </p>
-              </li>
-              <li dir="ltr">
-                <p dir="ltr">
-                  Log into your account.
-                </p>
-              </li>
-              <li dir="ltr">
-                <p dir="ltr">
-                  For the captain (or individual sports):
-                </p>
-              </li>
-              <ol>
-                <li dir="ltr">
-                  <p dir="ltr">
-                    Create a team by clicking on the “Create Team” button.
-                  </p>
-                </li>
-                <li dir="ltr">
-                  <p dir="ltr">
-                    Obtain the VA number by successfully creating a team. (Eg:
-                    VA-ATH-HAR00)
-                  </p>
-                </li>
-                <li dir="ltr">
-                  <p dir="ltr">
-                    Share the VA number with your team.
-                  </p>
-                </li>
-              </ol>
-              <li dir="ltr">
-                <p dir="ltr">
-                  For other team members:
-                </p>
-              </li>
-              <ol>
-                <li dir="ltr">
-                  <p dir="ltr">
-                    Click “Join Team” button and enter the VA number of the team.
-                  </p>
-                </li>
-              </ol>
-              <li dir="ltr">
-                <p dir="ltr">
-                  Get Your Game On!
-                </p>
-              </li>
-            </ol>
+      <svg
+        width="300"
+        height="1.5"
+        viewBox="0 0 300 1.5"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line y1="1.5" x2="300" y2="1.5" stroke="white" stroke-width="1.5" />
+      </svg>
 
-          </div>
-        </div>
-      </div>
-
-      <!-- About Image -->
-      <div class="col-lg-4 wow fadeInUp">
-        <div class="about_image"><img src="{% static 'images/about.png' %}" alt=""></div>
-      </div>
-
+      <p id="second">
+        “Training gives us an outlet for suppressed energies created by stress
+        and thus tones the spirit just as exercise conditions the body.”
+      </p>
+      <h3>-Arnold Schwarzenegger</h3>
     </div>
-  </div>
-</div>
-
-
-<!-- Quote -->
-
-<div class="quote" style="background-color: #232020">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="quote_content text-center wow bounceInLeft">
-          <p style="color: lightgrey">“Training gives us an outlet for suppressed energies created by stress and thus
-            tones the
-            spirit just as exercise conditions the body.”</p>
-        </div>
-        <div class="quote_author text-center wow bounceInRight" style="color: lightgrey">– Arnold Schwarzenegger</div>
+    <div class="cards">
+      <div class="card">
+        CRICKET
+        <img src="{% static 'images/cricket.png' %}" alt="" />
       </div>
+      <div class="card">
+        FOOTBALL
+        <img src="{% static 'images/football.png' %}" alt="" />
+      </div>
+      <div class="card">ATHLETICS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
+      <div class="card">BADMINTON<img src="{% static 'images/badminton.png' %}" alt="" /></div>
+      <div class="card">BASKETBALL<img src="{% static 'images/cricket.png' %}" alt="" /></div>
+      <div class="card">CHESS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
+      <div class="card">TABLE TENNIS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
+      <div class="card">TENNIS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
+      <div class="card">VOLLEYBALL<img src="{% static 'images/cricket.png' %}" alt="" /></div>
+      <div class="card">INFORMALS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
     </div>
-  </div>
-</div>
-
-<!-- Intro -->
-
-<style>
-  @media screen and (max-width: 700px) {
-
-    div.card1 {
-      top: 60%;
-    }
-
-    h2.card1 {
-      font-size: 1.17em;
-    }
-  }
-
-  @media screen and (min-width: 700px) {
-
-    div.card1 {
-      top: 70%;
-    }
-
-    img.card1 {
-      min-height: 460px;
-    }
-  }
-</style>
-<div class="intro">
-  <div class="intro_boxes_wrap">
-    <div class="d-flex flex-row align-items-start justify-content-start flex-wrap" style="height: auto">
-      <!-- Intro Box -->
-
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Cricket.pdf' %}">
-          <img class="card1" src="{% static 'images/cricket.jpg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">CRICKET</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Football.pdf' %}">
-          <img class="card1" src="{% static 'images/football.JPG' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">FOOTBALL</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Athletics.pdf' %}">
-          <img class="card1" src="{% static 'images/athletics.jpeg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">ATHELETICS</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Badminton.pdf' %}">
-          <img class="card1" src="{% static 'images/badminton.jpg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">BADMINTON</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Basketball.pdf' %}">
-          <img class="card1" src="{% static 'images/basketball.jpeg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">BASKETBALL</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Chess.pdf' %}">
-          <img class="card1" src="{% static 'images/chess.jpg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">CHESS</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/TT.pdf' %}">
-          <img class="card1" src="{% static 'images/TT.jpg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">TABLE TENNIS</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Tennis.pdf' %}">
-          <img class="card1" src="{% static 'images/tennis.jpg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">TENNIS</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% static 'Rules/Volleyball.pdf' %}">
-          <img class="card1" src="{% static 'images/volleyball.jpg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">VOLLEYBALL</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-        style="padding: 0;">
-        <a href="{% url 'main:comingSoon' %}">
-          <img class="card1" src="{% static 'images/informals.jpg' %}" style="background-size: contain;width: 100%;
-  height:auto;">
-          <div class="overlay">
-            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-              <h2 class="card1" style="color: #353535;font-weight: lighter">INFORMALS</h2>
-            </div>
-          </div>
-        </a>
-      </div>
-
-
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-
-<div id="reg" class="cta">
-  <div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
-
-    <!-- CTA Image -->
-
-
-    <!-- CTA Content -->
-    <div class="cta_content">
-      <div class="section_title_container">
-        <div class="section_subtitle wow fadeIn">Do you have it in you?</div>
-        <div class="section_title wow fadeIn">
-          <h1>Register NOW</h1>
-        </div>
-      </div>
-      <div class="cta_list">
+    <div class="reg">
+      <h1>Do you have it in you?&nbsp;<b>REGISTER NOW.</b></h1>
+      <div class="list">
         <ul>
-          <li class="wow fadeIn d-flex flex-row align-items-center justify-content-start">
-            <img src="{% static 'images/check.png' %}" alt="">
-            <span>Varchas is an embodiment of the ideology and provides a platform to athletes to showcase their talent.
-            </span>
+          <li>
+            Varchas is an embodiment of the ideology and provides a platform
+            to athletes to showcase their talent.
           </li>
-          <li class="wow faedIn d-flex flex-row align-items-center justify-content-start">
-            <img src="{% static 'images/check.png' %}" alt="">
-            <span> More than 1200 participant from all over the country participated in
-              the fest last season. </span>
+          <br />
+          <li>
+            More than 1200 participant from all over the country participated
+            in the fest last season.
           </li>
-          <li class="wow fadeIn d-flex flex-row align-items-center justify-content-start">
-            <img src="{% static 'images/check.png' %}" alt="">
-            <span>Varchas witnessed a sensation among the youth. Apart from the spectacular athletic events, varchas
-              witnessed an array of informal events.</span>
+          <br />
+          <li>
+            Varchas witnessed a sensation among the youth. Apart from the
+            spectacular athletic events, varchas witnessed an array of
+            informal events.
           </li>
-
         </ul>
       </div>
-      <div class="cta_buttons wow fadeInUp">
-      </div>
     </div>
-
-  </div>
-</div>
-
-<!-- Footer -->
-
-<footer class="footer">
-  <div class="footer_content">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="wow fadeInDownBig text-center" style="font-size: 7vh;color: white">Contact Us</div>
+    <div class="footer">
+      <h1>CONTACT US</h1>
+      <div class="icon">
+        <div class="ic">
+          <img src="{% static 'images/ic1.png' %}" alt="" />
+          <h3>Akshansh Verma 8287527315</h3>
+          <h3>Utkarsh Pandey 8957662202</h3>
         </div>
-      </div>
-      <div class="row footer_row">
-        <div class="col-lg-4 footer_col wow fadeInLeft">
-          <div class="footer_item text-center">
-            <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-              <div><i class="fa fa-phone fa-4x" style="color: white"></i></div>
-            </div>
-            <div class="footer_title">talk to us</div>
-            <div class="footer_list">
-              <ul>
-                <li>Shubham Gattani - +91 70286 96653</li>
-                <li>Harshita - +91 79877 83549</li>
-                <li>Sakshi Singh - +91 70601 52210</li>
-                <li>Piyush Mathur - +91 95997 11572</li>
-              </ul>
-            </div>
-          </div>
+        <div class="ic">
+          <img src="{% static 'images/ic2.png' %}" alt="" />
+          <h3>pr_varchas@iitj.ac.in</h3>
         </div>
-        <div class="col-lg-4 footer_col wow fadeInUpBig">
-          <div class="footer_item text-center">
-            <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-              <div><i class="fa fa-envelope fa-4x" style="margin-left: -1vh;margin-top:-1vh;color: white"></i></div>
-            </div>
-            <div class="footer_title">e-mail</div>
-            <div class="footer_list">
-              <ul>
-                <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a>
-                </li>
-                <li><a href="mailto:pr_varchas@iitj.ac.in"
-                    style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 footer_col wow fadeInRightBig">
-          <div class="footer_item text-center">
-            <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-              <div><i class="fa fa-map-marker fa-4x" style="color: white;margin-top: -1vh"></i></div>
-            </div>
-            <div class="footer_title">location</div>
-            <div class="footer_list">
-              <ul>
-                <li>Indian Institute of Technology</li>
-                <li>JODHPUR</li>
-              </ul>
-            </div>
-          </div>
+        <div class="ic">
+          <img src="{% static 'images/ic3.png' %}" alt="" />
+          <h3>Indian Institute of Technology Jodhpur</h3>
         </div>
       </div>
+      <br />
+      <h3>
+        Copyright &#169;2022 All rights reserved | This site is made with
+        &#x1F49C; by Varchas Web D Team
+      </h3>
     </div>
   </div>
-  <div class="wow fadeIn footer_bar d-flex flex-row align-items-center justify-content-center">
-    <div class="copyright">
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      Copyright &copy;<script>
-        document.write(new Date().getFullYear());
-      </script>
-      All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-        href="https://students.iitj.ac.in/" target="_blank">Varchas Web D Team</a>
-        <div style="padding-left: 50%;">
-          <img src="https://hitwebcounter.com/counter/counter.php?page=7201831&style=0007&nbdigits=5&type=page&initCount=500" title="User Stats" Alt="webcounterwebsite"   border="0" >
-        </div>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    </div>
-  </div>
-</footer>
-</div>
-<script src="{% static 'js/wow.min.js' %}"></script>
-<script>
-  new WOW().init();
-</script>
-
-<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
-<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
-<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
-<script src="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
-<script src="{% static 'plugins/easing/easing.js' %}"></script>
-<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
-<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
-<script>
- var h = $("img.card1").height()
-  $("img.card1").each(function(){
-    $(this).height(h)
-  });
-</script>
 
 </body>
 

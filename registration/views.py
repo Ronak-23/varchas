@@ -40,7 +40,7 @@ class TeamFormationView(CreateView):
 
             message = '''<!DOCTYPE html> <html><body>Hi {}!<br>You have successfully registered for Varchas2022.<br>Your teamId is: <b>{}</b><br>
                           Check your team details here: <a href="http://varchas22.in/account/myTeam">varchas22.in/account/myTeam</a><p>Vigour| Valour| Victory.</p></body></html>'''.format(user.user.first_name, user.teamId)
-            send_mail('Varchas Team Created', message, 'noreply@mymtasmtp.ml', [team.captian.user.email],
+            send_mail('Varchas Team Created', message, 'noreply@varchas22.in', [team.captian.user.email],
                       fail_silently=False, html_message=message)
 
             return super(TeamFormationView, self).form_valid(form)
