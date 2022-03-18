@@ -4,132 +4,228 @@
 <html lang="en">
 
 <head>
-    <title>Join Team</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-    <!--===============================================================================================-->
-    <style>
-        @media screen and (min-width: 300px) {
-            body {
-                background: url("https://us.123rf.com/450wm/swhite/swhite0709/swhite070900027/1694342-new-red-cricket-ball-on-grass-sporting-field-.jpg?ver=6");
-                background-size: 100%;
-            }
-            .warp-login101 {
-                justify-content: center;
-            }
-        }
-        
-        @media screen and (min-width: 800px) {
-            body {
-                background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) no-repeat;
-                background-size: 100% 125%;
-            }
-            .warp-login101 {
-                justify-content: space-between;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Registration</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/jointeam.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <!--===============================================================================================-->
 </head>
 
-<body style="">
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 warp-login101" style="padding: 20vh 10vh 20vh 10vh; position: relative;">
-                <div class="login100-pic js-tilt" data-tilt>
-                    <img src="{% static 'images/img-01.png' %}" alt="IMG" />
-                </div>
-                <form class="form1" style="" action="{% url 'accounts:joinTeam' %}" method="post">
-                    <span class="login100-form-title" style="padding-bottom: 3vh; color: black;">
-						JOIN TEAM
-					</span>
-                    <span class="login100-form-title" style="font-size: small;">
-						Enter the Team ID</span> {% if form.errors %} {% for field in form %} {% for error in field.errors %}
-                    <div class="alert alert-danger">
-                        <strong>{{ error|escape }}</strong>
-                    </div>
-                    {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
-                    <div class="alert alert-danger">
-                        <strong>{{ error|escape }}</strong>
-                    </div>
-                    {% endfor %} {% endif %} {% csrf_token %}
-
-                    <div>
-                        {% csrf_token %}
-                        <div class="wrap-input100">
-                            <input class="input100" type="text" name="teamId" placeholder="TEAM ID" required autofocus />
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-								<i class="fa fa-id-card" aria-hidden="true"></i>
-							</span>
-                        </div>
-                        <button type="submit" class="login100-form-btn" name="submit">
-							Submit
-						</button>
-                    </div>
-                </form>
-                <a href="{% url 'main:home' %}" style="position: absolute; right: 5%; top: 6%;">
-                    <button class="login100-form-btn" style="padding: 10px 13px 20px 13px;">
-						<h3>X</h3>
-					</button>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!--===============================================================================================-->
-    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-    <!--===============================================================================================-->
-    <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-    <!--===============================================================================================-->
-    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-    <!--===============================================================================================-->
-    <script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
-    <script>
-        $(".js-tilt").tilt({
-            scale: 1.1,
-        })
-    </script>
-    <!--===============================================================================================-->
-    <script src="{% static 'js/main.js' %}"></script>
-</body>
-
-</html>
-
-{##} {#
-<!DOCTYPE html>#} {#
-<html lang="en" dir="ltr">
-#} {#
-
-<head>
-    #} {#
-    <meta charset="utf-8" /> #} {#
-    <title></title>
-    #} {#</head>#} {#
-
 <body>
-    #} {#
-    <form class="" action="{% url 'accounts:joinTeam' %}" method="post">
-        #} {# {% csrf_token %}#} {# <input type="text" name="teamId" value="" />#} {# <button type="submit" name="submit">Submit</button>#} {#
-    </form>
-    #} {#
+  <div class="wrap">
+    <div class="main">
+      <div class="arcade">
+        <svg width="250" height="350" viewBox="0 0 132 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Arcade">
+            <g id="arcade">
+              <path id="Vector" d="M113.26 2.07L111.48 25.32L35.67 23.28L37.88 0L113.26 2.07Z"
+                fill="url(#paint0_linear_3:55)" />
+              <path id="Vector_2"
+                d="M131.13 21.17L129.31 177.55L102.67 198.14V138.93L89 124.26V108.73L110.36 91.5L117.33 35.85L111.04 25.25L112.82 2L131.13 21.17Z"
+                fill="url(#paint1_linear_3:55)" />
+              <path id="Vector_3" d="M117.77 35.92L43.79 34.09L35.67 23.28L111.48 25.32L117.77 35.92Z"
+                fill="url(#paint2_linear_3:55)" />
+              <path id="Vector_4"
+                d="M43.79 34.09L33 88.78L110.77 91.57L117.77 35.92L43.79 34.09ZM104.08 85.75L39.65 83.64L48 38.85L110.83 40.26L104.08 85.75Z"
+                fill="url(#paint3_radial_3:55)" />
+              <path id="Vector_5" d="M110.8 91.57L89.44 108.8L0 106.56L33.03 88.78L110.8 91.57Z"
+                fill="url(#paint4_linear_3:55)" />
+              <path id="Vector_6" d="M89.44 108.8V124.33L0 122.37V106.56L89.44 108.8Z"
+                fill="url(#paint5_linear_3:55)" />
+              <path id="Vector_7" d="M103.11 139L17.05 137.44L0 122.37L89.44 124.33L103.11 139Z"
+                fill="url(#paint6_linear_3:55)" />
+              <path id="Vector_8" d="M103.11 139V198.21L17.05 195.69V137.44L103.11 139Z"
+                fill="url(#paint7_linear_3:55)" />
+              <path id="Vector_9" d="M110.8 40.27L104.08 85.75L39.65 83.64L47.97 38.85L110.8 40.27Z" fill="#1C1837" />
+            </g>
+            <g id="alien">
+              <path id="Vector_10"
+                d="M64.3 61.9L64.36 60.35H63.53V59.58H62.69V59.19H63.53V58.03H62.27V58.8H61.43V59.58L59 59.39V58.62H58.16V57.84H56.91L56.86 59H57.7V59.39H56.86V60.17H56.02L55.96 61.72H55.13L55 64.3H56.26L56.32 62.75H56.73V64.3H57.56V65.08L59.66 65.15V63.99L57.94 64V63.61L62.13 63.76V64.15L60.46 64.09L60.41 65.25L62.5 65.32V64.55H63.34L63.42 63H63.84L63.78 64.55H65.04L65.14 61.84L64.3 61.9ZM58.88 61.33H57.62L57.67 60.16L58.92 60.21L58.88 61.33ZM62.64 61.46H61.39V60.29H62.65L62.64 61.46Z"
+                fill="#E22E89" />
+              <path id="Vector_11"
+                d="M92.66 63.8L92.74 62.25H91.9V61.47H91.06V61.08H91.9L92 59.89L90.74 59.83V60.6H89.91V61.37L87.4 61.26V60.49H86.56V59.72L85.3 59.66V60.82H86.13V61.21H85.3V61.98H84.46L84.38 63.52H83.55L83.41 66.23L84.67 66.28L84.74 64.73H85.16L85 66.17H85.83V66.94L87.93 67.04V65.87L86.26 65.8V65.41L90.44 65.6V65.99L88.78 66L88.72 67.16L90.81 67.26V66.48H91.65L91.73 64.93H92.15L92.07 66.48L93.32 66.53L93.46 63.82L92.66 63.8ZM87.24 63.17L86 63.11L86.05 62H87.3L87.24 63.17ZM91.01 63.33H89.75L89.81 62.17L91.07 62.22L91.01 63.33Z"
+                fill="#E22E89" />
+              <path id="Vector_12"
+                d="M79.9 51.6L80.05 49.54L79.05 49.48L79.13 48.48L78.13 48.42V47.9L79.13 47.97L79.24 46.42L77.75 46.33L77.67 47.33L76.67 47.26L76.59 48.26L73.59 48.07L73.67 47.07L72.67 47.01L72.74 46.01L71.25 45.91L71.14 47.46L72.14 47.52V48.04L71.14 47.97L71.07 48.97L70.07 48.9L69.93 51L68.93 50.94L68.68 54.54L70.17 54.64L70.32 52.58H70.82L70.67 54.64L71.67 54.7L71.59 55.7L74.09 55.86L74.2 54.32L72.2 54.19V53.68L77.2 53.99V54.51L75.2 54.38L75.08 56L77.58 56.15L77.65 55.15L78.65 55.22L78.8 53.16H79.29L79.15 55.22L80.64 55.31L80.9 51.71L79.9 51.6ZM73.46 50.68L71.96 50.58L72.07 49L73.57 49.09L73.46 50.68ZM78 51L76.5 50.91L76.61 49.36L78.11 49.46L78 51Z"
+                fill="#E22E89" />
+              <path id="Vector_13"
+                d="M79.14 63.1L79.2 61.55H78.37V60.78H77.53V60.39H78.37V59.23L77.11 59.18V59.96H76.27V60.73L73.76 60.65V59.87H72.93L73 59H71.74V60.16H72.57V60.55H71.73V61.32H70.89L70.83 62.87H70L69.89 65.59H71.15V64H71.57L71.51 65.55H72.34V66.33L74.44 66.4V65.24L72.77 65.18V64.79L77 65V65.39L75.33 65.33L75.28 66.5L77.38 66.57V65.79H78.21L78.27 64.24H78.69L78.63 65.79H79.89L79.99 63.08L79.14 63.1ZM73.72 62.53L72.46 62.48L72.51 61.32H73.76L73.72 62.53ZM77.49 62.65H76.23V61.49H77.49V62.65Z"
+                fill="#E22E89" />
+            </g>
+            <g id="tirs immobiles">
+              <path id="Vector_14" d="M70.53 84.73L69.59 84.68L69.72 82.23L70.66 82.28L70.53 84.73Z" fill="#FFDD8E" />
+              <path id="Vector_15" d="M70.72 81.08L69.78 81.03L69.91 78.59L70.85 78.63L70.72 81.08Z" fill="#FFDD8E" />
+            </g>
+            <g id="tirgauche">
+              <path id="Vector_16" d="M67.45 73.63L66.62 74.05L65.4 71.88L66.23 71.47L67.45 73.63Z" fill="#FFDD8E" />
+              <path id="Vector_17" d="M65.4 70.11L64.58 70.55L63.28 68.43L64.1 67.98L65.4 70.11Z" fill="#FFDD8E" />
+            </g>
+            <path id="tirdroit" d="M72.02 76.21L71.29 75.66L72.9 73.74L73.64 74.29L72.02 76.21Z" fill="#FFDD8E" />
+            <path id="basejoystick"
+              d="M43.81 98.51C43.81 99.35 41.95 100.03 39.65 100.03C37.35 100.03 35.49 99.35 35.49 98.51C35.49 97.67 37.36 97 39.65 97C41.94 97 43.81 97.68 43.81 98.51Z"
+              fill="#1D1D1B" stroke="url(#paint8_linear_3:55)" stroke-miterlimit="10" />
+            <path id="joystick" d="M39.65 86.57V98.52" stroke="#1D1D1B" stroke-width="2" stroke-miterlimit="10" />
+            <g id="boutons">
+              <path id="Vector_21"
+                d="M70.01 97.88C71.0925 97.88 71.97 97.6472 71.97 97.36C71.97 97.0728 71.0925 96.84 70.01 96.84C68.9275 96.84 68.05 97.0728 68.05 97.36C68.05 97.6472 68.9275 97.88 70.01 97.88Z"
+                fill="#1D1D1B" stroke="#1D1D1B" stroke-miterlimit="10" />
+              <path id="Vector_22"
+                d="M63.42 101.07C64.5025 101.07 65.38 100.837 65.38 100.55C65.38 100.263 64.5025 100.03 63.42 100.03C62.3375 100.03 61.46 100.263 61.46 100.55C61.46 100.837 62.3375 101.07 63.42 101.07Z"
+                fill="#1D1D1B" stroke="#1D1D1B" stroke-miterlimit="10" />
+              <path id="Vector_23"
+                d="M73.93 101.59C75.0125 101.59 75.89 101.357 75.89 101.07C75.89 100.783 75.0125 100.55 73.93 100.55C72.8475 100.55 71.97 100.783 71.97 101.07C71.97 101.357 72.8475 101.59 73.93 101.59Z"
+                fill="#1D1D1B" stroke="#1D1D1B" stroke-miterlimit="10" />
+            </g>
+            <path id="boule"
+              d="M42.56 85.16C42.5961 85.7419 42.4565 86.3211 42.1595 86.8228C41.8624 87.3244 41.4216 87.7252 40.894 87.9733C40.3664 88.2214 39.7765 88.3053 39.2007 88.2142C38.6249 88.1231 38.0897 87.8611 37.6646 87.4623C37.2394 87.0634 36.9438 86.546 36.8162 85.9772C36.6885 85.4084 36.7347 84.8143 36.9486 84.272C37.1626 83.7297 37.5345 83.2642 38.0162 82.9357C38.4978 82.6073 39.067 82.4311 39.65 82.43C40.3966 82.411 41.1206 82.6869 41.6652 83.1979C42.2098 83.7088 42.5313 84.4137 42.56 85.16Z"
+              fill="url(#paint9_linear_3:55)" />
+          </g>
+          <defs>
+            <linearGradient id="paint0_linear_3:55" x1="29.47" y1="-13.31" x2="95.63" y2="24.89"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#492783" />
+              <stop offset="1" stop-color="#1C1837" />
+            </linearGradient>
+            <linearGradient id="paint1_linear_3:55" x1="3857.53" y1="19643.4" x2="5632.04" y2="19643.4"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#492783" />
+              <stop offset="1" stop-color="#1C1837" />
+            </linearGradient>
+            <linearGradient id="paint2_linear_3:55" x1="77.2" y1="14.9" x2="76.39" y2="39.69"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0.03" stop-color="#1E1A38" />
+              <stop offset="0.1" stop-color="#322246" />
+              <stop offset="0.26" stop-color="#5E3266" />
+              <stop offset="0.41" stop-color="#7D3F7E" />
+              <stop offset="0.54" stop-color="#91468C" />
+              <stop offset="0.62" stop-color="#984991" />
+              <stop offset="0.68" stop-color="#9B4E91" />
+              <stop offset="0.74" stop-color="#A55C91" />
+              <stop offset="0.81" stop-color="#B57390" />
+              <stop offset="0.88" stop-color="#CC948F" />
+              <stop offset="0.95" stop-color="#E9BD8F" />
+              <stop offset="1" stop-color="#FFDD8E" />
+            </linearGradient>
+            <radialGradient id="paint3_radial_3:55" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(75.5108 62.8253) rotate(0.609507) scale(47.0779 29.5509)">
+              <stop stop-color="#FFDD8E" />
+              <stop offset="1" stop-color="#49B9AF" />
+            </radialGradient>
+            <linearGradient id="paint4_linear_3:55" x1="55.18" y1="110.42" x2="55.77" y2="80.32"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#A14D98" />
+              <stop offset="0.14" stop-color="#A45298" />
+              <stop offset="0.31" stop-color="#AE6197" />
+              <stop offset="0.5" stop-color="#BE7A95" />
+              <stop offset="0.71" stop-color="#D59C92" />
+              <stop offset="0.91" stop-color="#F2C88F" />
+              <stop offset="1" stop-color="#FFDD8E" />
+            </linearGradient>
+            <linearGradient id="paint5_linear_3:55" x1="44.45" y1="126.58" x2="45.02" y2="103.43"
+              gradientUnits="userSpaceOnUse">
+              <stop offset="0.47" stop-color="#A14D98" />
+              <stop offset="0.57" stop-color="#9A4A96" />
+              <stop offset="0.7" stop-color="#884292" />
+              <stop offset="0.86" stop-color="#69358B" />
+              <stop offset="1" stop-color="#492783" />
+            </linearGradient>
+            <linearGradient id="paint6_linear_3:55" x1="53.62" y1="118.95" x2="48.61" y2="147.39"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#492783" />
+              <stop offset="0.01" stop-color="#4C2884" />
+              <stop offset="0.18" stop-color="#6B368B" />
+              <stop offset="0.36" stop-color="#834091" />
+              <stop offset="0.55" stop-color="#944795" />
+              <stop offset="0.75" stop-color="#9E4C97" />
+              <stop offset="1" stop-color="#A14D98" />
+            </linearGradient>
+            <linearGradient id="paint7_linear_3:55" x1="17.05" y1="167.82" x2="103.11" y2="167.82"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#A14D98" />
+              <stop offset="0.19" stop-color="#9C4B97" />
+              <stop offset="0.42" stop-color="#8D4493" />
+              <stop offset="0.67" stop-color="#753A8D" />
+              <stop offset="0.94" stop-color="#532B85" />
+              <stop offset="1" stop-color="#492783" />
+            </linearGradient>
+            <linearGradient id="paint8_linear_3:55" x1="39.65" y1="100.53" x2="39.65" y2="96.5"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1D1D1B" />
+              <stop offset="0.44" stop-color="#1F1F1D" />
+              <stop offset="0.6" stop-color="#262624" />
+              <stop offset="0.72" stop-color="#31312F" />
+              <stop offset="0.81" stop-color="#424240" />
+              <stop offset="0.89" stop-color="#575756" />
+              <stop offset="0.96" stop-color="#717171" />
+              <stop offset="1" stop-color="#878787" />
+            </linearGradient>
+            <linearGradient id="paint9_linear_3:55" x1="39.6" y1="87.9" x2="39.73" y2="81.4"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#E22E89" />
+              <stop offset="0.26" stop-color="#E2308A" />
+              <stop offset="0.4" stop-color="#E3398F" />
+              <stop offset="0.52" stop-color="#E54697" />
+              <stop offset="0.62" stop-color="#E85AA2" />
+              <stop offset="0.72" stop-color="#EC74B0" />
+              <stop offset="0.8" stop-color="#F093C2" />
+              <stop offset="0.88" stop-color="#F5B8D7" />
+              <stop offset="0.96" stop-color="#FBE3EF" />
+              <stop offset="1" stop-color="white" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="text">
+        <!-- <img src="{% static 'images/team.png' %}" alt="" />
+        <img src="{% static 'images/registration.png' %}" alt="" /> -->
+        <img src="{% static 'images/title.png' %}" alt="" />
+        <div class="form">
+          <form class="form1" style="" action="{% url 'accounts:joinTeam' %}" method="post">
+            <span class="login100-form-title" style="font-size: larger; color: white;">
+              Enter the Team ID</span> {% if form.errors %} {% for field in form %} {% for error in field.errors %}
+            <div class="alert alert-danger">
+              <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+              <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %} {% endif %} {% csrf_token %}
+
+            <div>
+              {% csrf_token %}
+              <div class="wrap-input100">
+                <input type="text" name="teamId" placeholder="TEAM ID" required autofocus />
+                <span class="focus-input100"></span>
+              </div>
+              <button type="submit" name="submit" class="login-btn">
+                Submit
+              </button>
+            </div>
+          </form>
+          <a href="{% url 'main:home' %}" style="position: absolute; right: 5%; top: 6%;">
+            <button class="login100-form-btn" style="padding: 10px 13px 20px 13px; background-color: #e60073;">
+              <h3>X</h3>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
-#} {#
 
 </html>
-#}

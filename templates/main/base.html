@@ -58,7 +58,7 @@
                         {% endif %}
                         <a href="{% url 'main:home' %}">Home</a></li>
                         <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
-                        <li class="topbar-styles"><a href="{% url 'main:aboutus' %}">About Us</a></li>
+                        <li class="topbar-styles"><a href="{% url 'main:aboutus' %}">About</a></li>
                         {% for navbaroption in navbaroptions %}
                             <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false"
@@ -163,6 +163,9 @@
                             {% if page == "ourTeam" %}
                                 <li class="active">{% else %}
                                 <li>{% endif %}<a href="{% url 'main:OurTeam' %}">Core Team</a></li>
+                            {% if page == "aboutus" %}
+                                <li class="active">{% else %}
+                                <li>{% endif %}<a href="{% url 'main:aboutus' %}">About</a></li>
                             {% for navbaroption in navbaroptions %}
                                 <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                        aria-haspopup="true" aria-expanded="false"
