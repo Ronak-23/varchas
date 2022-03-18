@@ -117,7 +117,7 @@
   &
   :hover {
     color: white;
-    background: #ff7315;
+    background: #ff518b;
   }
 
   }
@@ -144,7 +144,7 @@
 
   h6 {
     text-transform: uppercase;
-    color: #ff7315;
+    color: #ff518b;
   }
 
   p {
@@ -180,7 +180,7 @@
     margin-bottom: 5px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #ff7315;
+    color: #ff518b;
   }
 
   .skill {
@@ -194,13 +194,13 @@
   }
 
   .fab {
-    color: #ff7315;
+    color: #ff518b;
     font-size: 14px;
   }
 
   .bar {
     height: 5px;
-    background: #ff7315;
+    background: #ff518b;
     text-align: right;
 
   p {
@@ -314,7 +314,7 @@
 
   .following {
     color: white;
-    background: #ff7315;
+    background: #ff518b;
   }
 
   @import url('https://fonts.googleapis.com/css?family=Krub:400,700');
@@ -438,7 +438,7 @@
 
   .card .button1 a:hover {
     color: white;
-    background: #ff7315;
+    background: #ff518b;
   }
 
   .card .ds-info {
@@ -465,7 +465,7 @@
 
   .card .ds-info .pens h6, .card .ds-info .position h6, .card .ds-info .posts h6 {
     text-transform: uppercase;
-    color: #ff7315;
+    color: #ff518b;
   }
 
   .card .ds-info .pens p, .card .ds-info .position p, .card .ds-info .posts p {
@@ -495,7 +495,7 @@
     margin-bottom: 5px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #ff7315;
+    color: #ff518b;
   }
 
   .card .ds-skill .skill h6 {
@@ -507,13 +507,13 @@
   }
 
   .card .ds-skill .skill .fab {
-    color: #ff7315;
+    color: #ff518b;
     font-size: 14px;
   }
 
   .card .ds-skill .skill .bar {
     height: 5px;
-    background: #ff7315;
+    background: #ff518b;
     text-align: right;
   }
 
@@ -622,7 +622,7 @@
 
   .following {
     color: white;
-    background: #ff7315;
+    background: #ff518b;
   }
 
   .avatar {
@@ -658,15 +658,13 @@
   <div style="padding: 10px;width: 100%"
        class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
 
-
+       <!-- style='{% if member.get_position_display == "Festival Chief" or member.get_position_display == "Creativity" or member.get_position_display == "Resources" or member.get_position_display == "Pronite" or member.get_position_display == "SOCH" or member.get_position_display == "Publicity and Media" or member.get_position_display == "Informals" or member.get_position_display == "Marathon" or member.get_position_display == "Transport" %}width: 50%;{% elif member.get_position_display == "Public Relations and Hospitality" or member.get_position_display == "Sport Events" or member.get_position_display == "Web and APP" %}width: 25%;{% elif member.get_position_display == "Marketing" or member.get_position_display == "Security" %}width: 33.33%;{% endif %}padding: 8vh 0 2vh 0 forloop.counter1 == 1 or forloop.counter1 == 2 or forloop.counter1 == 3-->
     <div class="cta_content"
          style="width: 100%;">
-
-
       <div class="row">
         {% for member in our_team.all %}
           <div class="container our-team-container"
-               style="{% if member.get_position_display == "Festival Chief" or member.get_position_display == "Creativity" or member.get_position_display == "Resources" or member.get_position_display == "Pronite" or member.get_position_display == "SOCH" or member.get_position_display == "Publicity and Media" or member.get_position_display == "Informals" or member.get_position_display == "Marathon" or member.get_position_display == "Transport" %}width: 50%;{% elif member.get_position_display == "Public Relations and Hospitality" or member.get_position_display == "Sport Events" or member.get_position_display == "Web and APP" %}width: 25%;{% elif member.get_position_display == "Marketing" or member.get_position_display == "Security" %}width: 33.33%;{% endif %}padding: 8vh 0 2vh 0">
+               style='{% if member.get_position_display == "Festival Chief"  %}width: 33.33%;{%elif member.get_position_display == "Creativity" or member.get_position_display == "Resources" or member.get_position_display == "SOCH" or member.get_position_display == "Publicity and Media" or member.get_position_display == "Informals" or member.get_position_display == "Sport Events" or member.get_position_display == "Transport" or member.get_position_display == "Festival Chief" or member.get_position_display == "Web and APP" %}width: 50%;{% elif member.get_position_display == "Transport" or member.get_position_display == "Marketing"  %}width: 33.33%;{% endif %}padding: 8vh 0 2vh 0'>
             <div class="card wow fadeInUp" style="padding-bottom: 20vh">
               <div class="ds-top"></div>
               <div class="avatar-holder">
@@ -701,17 +699,17 @@
                      {% else %}style="justify-content: space-around;padding: 2vh 0 0 0"{% endif %}>
                   {% if member.insta != null %}
                     <div>
-                      <a href="{{ member.insta }}" style="color: #ff7315 "><i class="fa fa-instagram fa-3x"
+                      <a href="{{ member.insta }}" style="color: #ff518b "><i class="fa fa-instagram fa-3x"
                                                                               href="{{ member.insta }}"></i></a>
                     </div>{% endif %}
                   {% if member.fp != null %}
                     <div>
-                      <a href="{{ member.fp }}" style="color: #ff7315"><i class="fa fa-facebook-official fa-3x"
+                      <a href="{{ member.fp }}" style="color: #ff518b"><i class="fa fa-facebook-official fa-3x"
                                                                           href="{{ member.fp }}"></i></a>
                     </div>{% endif %}
                   {% if member.linkedIn != null %}
                     <div>
-                      <a href="{{ member.linkedIn }}" style="color: #ff7315"><i class="fa fa-linkedin-square fa-3x"
+                      <a href="{{ member.linkedIn }}" style="color: #ff518b"><i class="fa fa-linkedin-square fa-3x"
                                                                                 href="{{ member.linkedIn }}"></i></a>
                     </div>{% endif %}
                 </div>
