@@ -1,58 +1,31 @@
+{% extends 'main/base.html' %}
 {% load static %}
+{% block body %}
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <title>Sign Up</title>
+  <head>
     <meta charset="UTF-8" />
-    <script></script>
-    <style></style>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-    <!--===============================================================================================-->
-</head>
-
-<body>
-    <div class="limiter">
-        <div class="container-login100" style="
-					background: #000000;
-					background: -webkit-linear-gradient(-135deg, #333333, #000000);
-					background: -o-linear-gradient(-135deg, #333333, #000000);
-					background: -moz-linear-gradient(-135deg, #333333, #000000);
-					background: linear-gradient(-135deg, #333333, #000000);
-				">
-            <div class="wrap-login100" style="background: white; position: relative;">
-                <div class="login100-pic js-tilt" data-tilt>
-                    <img src="{% static 'images/img-01.png' %}" alt="IMG" />
-                </div>
-
-                <form class="login100-form validate-form" method="post" id="login">
-                    <span class="login100-form-title">
-						Sign Up
-					</span> {% csrf_token %} {% for field in form %} {% if field.label == "State" or field.label == "Gender" or field.label == "Current year" or field.label == "Accommodation required" %}
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="main">
+        <div class="form">
+          <form  method="post" id="login">
+            {% csrf_token %} {% for field in form %} {% if field.label == "State" or field.label == "Gender" or field.label == "Current year" or field.label == "Accommodation required" %}
                     <div style="padding-top: 1vh; padding-bottom: 2vh;">
                         {{ field.label }}{% if field.field.required %}*{% endif %} : {{ field }}
                     </div>
                     {% elif field.label == "Username" %} {# {% elif %}#} {# {{field.label }}{% if field.field.required %}*{% endif %}:{{ field}}<br /><br />#} {% else %}
-                    <div class="wrap-input100" style="position: relative;">
+                    <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
                         {# {{ field.label }}: {{field}}#}
-
-                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="{% if field.field.required %}{{ field.label }}*{% else %} Referral code (optional){% endif %}"
+                        {{ field.label }}{% if field.field.required %}*{% endif %} :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="{% if field.field.required %}{{ field.label }}*{% endif %}"
                         />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
@@ -60,31 +33,56 @@
 						</span>
                     </div>
                     {% endif %} {% for error in field.errors %}
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="color:red">
                         <strong>{{ error|escape }}</strong>
                     </div>
                     {% endfor %} {% for error in form.non_field_errors %}
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="color:red">
                         <strong>{{ error|escape }}</strong>
                     </div>
                     {% endfor %} {% endfor %} {% if messages %} {% for message in messages %} {% if 'register-success' in message.tags %}
-                    <div class="form-header green mb-4">{{ message }}</div>
+                    <div class="form-header green mb-4" style="color:green">{{ message }}</div>
                     {% endif %} {% endfor %} {% endif %}
-
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-							Sign Up
-						</button>
-                    </div>
+                    <input type="submit" value="REGISTER" />
                 </form>
-                <a href="{% url 'main:home' %}" style="position: absolute; right: 5%; top: 6%;">
-                    <button class="login100-form-btn" style="padding: 10px 13px 20px 13px;">
-						<h3>X</h3>
+                <!-- <a href="{% url 'main:home' %}" style="position: absolute; right: 35%; top: 6%;">
+                    <button style="background-color:transparent; color:white;border: none; cursor: pointer;">
+						<h1>Home</h1>
 					</button>
-                </a>
-            </div>
+                </a> -->
+            <!-- <label for="email">email</label>
+            <input type="text" id="email" name="emailname" />
+            <label for="password">password</label>
+            <input type="text" id="password" name="passwordname" />
+            <label for="confirm password">confirm password</label>
+            <input
+              type="text"
+              id="confirm password"
+              name="confirm passwordname"
+            />
+            <label for="college">COLLEGE</label>
+            <input type="text" id="college" name="collegename" />
+            <label for="sport">SPORT</label>
+            <input type="text" id="sport" name="sportname" />
+            <label for="college">COLLEGE</label>
+            <input type="text" id="college" name="collegename" />
+            <label for="sport">SPORT</label>
+            <input type="text" id="sport" name="sportname" />
+            <label for="college">COLLEGE</label>
+            <input type="text" id="college" name="collegename" />
+            <label for="college">COLLEGE</label>
+            <input type="text" id="college" name="collegename" />
+            <label for="sport">SPORT</label>
+            <input type="text" id="sport" name="sportname" />
+            <label for="college">COLLEGE</label>
+            <input type="text" id="college" name="collegename" /> -->
+          </form>
         </div>
+      </div>
     </div>
+  </body>
+</html>
+
 
     <!--===============================================================================================-->
     <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
@@ -105,3 +103,4 @@
 </body>
 
 </html>
+{% endblock %}

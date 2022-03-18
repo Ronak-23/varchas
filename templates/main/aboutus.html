@@ -1,0 +1,201 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="about" style="background-image: url(https://64.media.tumblr.com/c4a6179c7f8ceab172b60703c4ac6807/tumblr_oss2d5TBAy1qeyvpto1_500.gifv);">
+  <h1>ABOUT VARCHAS</h1>
+  <p>
+    Varchas is the annual sports festival of IIT Jodhpur, varchas  has grown to become the largest and one of the most awaited sports festival of north west India.
+Varchas with it's iconic slogan vigour,valour,victory symbolises the energy and courage to achieve victory and uphold the noble spirit of the games. 
+
+The fest is planned to host about 2000 students pan India and has a large number of exciting competitions and activities relevant to the theme.
+
+Varchas celebrates spirit of sportsmanship and serves as a platform to showcase the countless hours of perspiration put in by the teams to achieve excellence in their sport. So gear up yourself and your squads to witness the frolicsome Varchas
+  </p>
+  <div class="buttons">
+    <button type="button" class="btn btn-primary video-btn" data-toggle="modal" data-src="https://drive.google.com/file/d/1eAQZlZu1_UXJqgOXglYyxOgtIIGr4_gN/preview" data-target="#myModal">
+      Theme Reveal
+    </button>
+    <button type="button" class="btn btn-primary video-btn" data-toggle="modal" data-src="https://drive.google.com/file/d/1nyZQmZD6-cYJcthL-2zxMjOUGgpvA1Bp/preview" data-target="#myModal">
+      Intro
+    </button>
+    <a href="#gallery"><button type="button" class="btn" data-target="#gallery" style="scroll-behavior: smooth">
+      Gallery
+    </button></a>
+  </div>
+</div>
+<style>
+  .modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+  }
+
+
+
+.modal-body {
+  position:relative;
+  padding:0px;
+}
+.close {
+  position:absolute;
+  right:-30px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  color:#fff;
+  opacity:1;
+}
+</style>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      
+      <div class="modal-body">
+
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>        
+        <!-- 16:9 aspect ratio -->
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+</div>
+        
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Raleway|Quicksand");
+  .image_text_snippet {
+    position: relative;
+  }
+  .image_text_snippet .img_in_wide {
+    width: 100%;
+    height: auto;
+  }
+  .image_text_snippet .img_in_mobile {
+    display: none;
+  }
+  .image_text_snippet .image_text_snippet_title {
+    position: absolute;
+    top: 80%;
+    left: 30px;
+    padding: 10px;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .section_text_div {
+    text-align: center;
+    padding: 10px;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #57c4ca;
+  }
+  .image_text_snippet_title > a > img {
+      max-width: 300px;
+  }
+  
+  @media (max-width: 950px) {
+    .image_text_snippet .image_text_snippet_title {
+      top: 78%;
+      font-size: 20px;
+    }
+    .section_text_div {
+      font-size: 17px;
+    }
+    .image_text_snippet_title > a > img {
+      max-width: 250px;
+    }
+  }
+  @media (max-width: 600px) {
+    .image_text_snippet .img_in_wide {
+      display: none;
+    }
+    .image_text_snippet .img_in_mobile {
+      display: inline;
+      width: 100%;
+      height: auto;
+    }
+    .image_text_snippet .image_text_snippet_title {
+      top: 77%;
+      font-size: 15px;
+    }
+    .section_text_div {
+      font-size: 17px;
+    }
+    .image_text_snippet_title > a > img {
+      max-width: 200px;
+    }
+  }
+  </style>
+  <div class="row image_text_snippet" id="gallery">
+    <div class="col col-12 center-text">
+      <div id="carousel01" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel01" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel01" data-slide-to="1"></li>
+          <li data-target="#carousel01" data-slide-to="2"></li>
+          <li data-target="#carousel01" data-slide-to="3"></li>
+          <li data-target="#carousel01" data-slide-to="4"></li>
+          <li data-target="#carousel01" data-slide-to="5"></li>
+          <li data-target="#carousel01" data-slide-to="6"></li>
+          <li data-target="#carousel01" data-slide-to="7"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="image_text_snippet carousel-item active"> 
+        <img src="{% static 'images/gallery/football.jpg' %}" class="img_in_wide o_we_selected_image " alt="..."/> 
+        <img src="{% static 'images/gallery/football.jpg' %}" class="img_in_mobile image_text_snippet" alt="..."/> 
+            <div class="section_text_div">        </div>
+        </div>
+          <div class="image_text_snippet carousel-item"> 
+        <img src="{% static 'images/gallery/basketball.jpg' %}" class="img_in_wide o_we_selected_image" alt="..."/> 
+        <img src="{% static 'images/gallery/basketball.jpg' %}" class="img_in_mobile" alt="..."/> 
+            <div class="section_text_div">
+            </div>
+      </div>
+          <div class="image_text_snippet carousel-item">
+        <img src="{% static 'images/gallery/prizes.jpg' %}" class=img_in_wide o_we_selected_image" alt="..."/> 
+        <img src="{% static 'images/gallery/prizes.jpg' %}" class="img_in_mobile" alt="..."/> 
+      </div>
+          <div class="image_text_snippet carousel-item">
+        <img src="{% static 'images/gallery/volleyball.jpg' %}" class="img_in_wide o_we_selected_image" alt="..."/> 
+        <img src="{% static 'images/gallery/volleyball.jpg' %}" class="img_in_mobile" alt="..."/> 
+            <div class="section_text_div">
+            </div>
+      </div>
+          <div class="image_text_snippet carousel-item">
+        <img src="{% static 'images/gallery/badminton.jpg' %}" class="img_in_wide o_we_selected_image" alt="..."/> 
+        <img src="{% static 'images/gallery/badminton.jpg' %}" class="img_in_mobile" alt="..."/> 
+      </div>
+          <div class="image_text_snippet carousel-item">
+        <img src="{% static 'images/gallery/informals.jpg' %}" class="img_in_wide o_we_selected_image" alt="..."/> 
+        <img src="{% static 'images/gallery/informals.jpg' %}" class="img_in_mobile" alt="..."/> 
+            <div class="section_text_div">
+            </div>
+      </div>
+          <div class="image_text_snippet carousel-item">
+        <img src="{% static 'images/gallery/cricket.jpg' %}" class="img_in_wide o_we_selected_image" alt="..."/> 
+        <img src="{% static 'images/gallery/cricket.jpg' %}" class="img_in_mobile" alt="..."/> 
+      </div>
+          <div class="image_text_snippet carousel-item">
+        <img src="{% static 'images/gallery/athletics.jpg' %}" class="img_in_wide o_we_selected_image" alt="..."/> 
+        <img src="{% static 'images/gallery/athletics.jpg' %}" class="img_in_mobile" alt="..."/> 
+            <div class="section_text_div">
+            </div>
+      </div>
+        </div>
+        <a class="carousel-control-prev" href="#carousel01" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel01" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
+    </div>
+  </div>
+{% endblock %}

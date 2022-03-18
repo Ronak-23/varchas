@@ -5,6 +5,7 @@ from django.contrib import messages
 from rest_framework import viewsets
 from .serializers import CricketSerializer, FootballSerializer, VolleyballSerializer, ChessSerializer, SquashSerializer
 from rest_framework import permissions
+from django.shortcuts import render
 
 
 class CreateMatch(FormView):
@@ -77,3 +78,47 @@ class SquashViewSet(viewsets.ModelViewSet):
     queryset = Squash.objects.all()
     serializer_class = SquashSerializer
     permission_classes = [permissions.IsAdminUser]
+
+
+def cricket(request):
+    return render(request, 'events/cricket.html')
+
+
+def football(request):
+    return render(request, 'events/football.html')
+
+
+def volleyball(request):
+    return render(request, 'events/volleyball.html')
+
+
+def chess(request):
+    return render(request, 'events/chess.html')
+
+
+def squash(request):
+    return render(request, 'events/squash.html')
+
+
+def TT(request):
+    return render(request, 'events/TT.html')
+
+
+def badminton(request):
+    return render(request, 'events/badminton.html')
+
+
+def tennis(request):
+    return render(request, 'events/tennis.html')
+
+
+def athletics(request):
+    return render(request, 'events/athletics.html')
+
+
+def informals(request):
+    return render(request, 'events/informals.html')
+
+
+def basketball(request):
+    return render(request, 'events/basketball.html')

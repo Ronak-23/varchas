@@ -1,167 +1,71 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     {% block header %}
-        <title>Varchas</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Varchas">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles/animate.css' %}">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varchas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
 
         <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet"
               type="text/css">
         <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.theme.default.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/animate.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+         <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/animate.css' %}">
+    <link
+      href="http://fonts.cdnfonts.com/css/post-no-bills-jaffna"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
     {% endblock %}
-</head>
+  </head>
+  <body onscroll="topbar()" onload="topbar2()">
 
-<body onscroll="topbar()" onload="topbar2()">
-
-<div class="super_container">
-
-
-    <!-- Header -->
+    <div class="super_container">
 
 
-    <!-- Fixed Header -->
-
-    <header class="fixed_header" style="background-color:rgba(255,255,255,0) ">
-        <div class="header_wrap d-flex flex-row align-items-center justify-content-center" style="padding-top: 0">
-
-            <!-- Logo -->
-            <div class="logo"><a href="{% url 'main:home' %}"><img src="{% static 'images/logo_2.png' %}"
-                                                                   alt=""></a></div>
-
-            <!-- Main Nav -->
-            <nav class="main_nav">
-                <ul class="d-flex flex-row align-items-center justify-content-center">
-                    {% if page == "home" %}
-                        <li class="active topbar-styles">
-                    {% else %}
-                        <li class="topbar-styles">
-                    {% endif %}
-                    <a href="{% url 'main:home' %}">Home</a></li>
-                    <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
-                    {% for navbaroption in navbaroptions %}
-                        <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false"
-                               style="color: white    ">{{ navbaroption.title }}</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                {% for suboption in navbaroption.sub_options.all %}
-                                    <a class="dropdown-item" style="color: black; font-family: 'Poppins', sans-serif;"
-                                       href="{{ suboption.get_absolute_url }}">{{ suboption.title }}</a>
-                                {% endfor %}
-                            </div>
-                        </li>
-                    {% endfor %}
-                    {% if user.is_authenticated %}
-                        {% if userprofile.teamId != None %}
-
-                            <li style="margin-right: 52px" class="topbar-styles">
-                                <a>Team</a>
-                                <ul>
-                                    <a href="{% url 'accounts:myTeam' %}">
-                                        <li class="topbar-styles">Details</li>
-                                    </a>
-                                    <a href="{% url 'accounts:leaveTeam' %}">
-                                        <li class="topbar-styles">Leave Team</li>
-                                    </a>
-                                    <a href="{% url 'registration:remove_player' %}">
-                                        <li class="topbar-styles">Remove player</li>
-                                    </a>
-                                </ul>
-                            </li>
-
-
-                        {% else %}
-
-
-                            <li class="topbar-styles"><a>Team</a>
-                                <ul>
-                                    <a href="{% url 'accounts:joinTeam' %}">
-                                        <li class="topbar-styles">Join Team</li>
-                                    </a>
-                                    <a href="{% url 'registration:team' %}">
-                                        <li class="topbar-styles">Create Team</li>
-                                    </a>
-                                </ul>
-                            </li>
-
-
-
-
-                        {% endif %}
-                    {% else %}
-                        <li class="topbar-styles">
-                            <a href="{% url 'accounts:register' %}">Register</a>
-                        </li>
-
-                    {% endif %}
-                </ul>
-            </nav>
-
-            <!-- Social -->
-            <div class=" header_social">
+        <!-- Header -->
+    
+    
+        <!-- Fixed Header -->
+    
+        <header class="fixed_header" style="background-color:rgba(255,255,255,0) ">
+            <div class="header_wrap d-flex flex-row align-items-center justify-content-center" style="padding-top: 0">
+    
+                <!-- Logo -->
+                <div class="logo"><a href="{% url 'main:home' %}"><img src="{% static 'images/logo_2.png' %}"
+                                                                       alt=""></a></div>
+    
+                <!-- Main Nav -->
                 <nav class="main_nav">
-                    <ul class="d-flex flex-row align-items-center justify-content-start">
-                        {% if user.is_authenticated %}
-                            <li class="topbar-styles"><a>{{ userprofile.user.first_name }}</a>
-                                <ul>
-                                    <a href="{% url 'accounts:profile' %}">
-                                        <li class="topbar-styles">Profile</li>
-                                    </a>
-                                    <a href="{% url 'logout' %}">
-                                        <li class="topbar-styles">Logout</li>
-                                    </a>
-                                </ul>
-                            </li>
-                        {% else %}
-                            <li class="topbar-styles"><a href="{% url 'login' %}">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
-
-            </div>
-
-            <!-- Hamburger -->
-            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
-
-        </div>
-    </header>
-
-    <!-- Menu -->
-
-    <div class="menu">
-        <div class="menu_door"></div>
-
-        <div class="menu_content d-flex flex-column align-items-center justify-content-center">
-            <div class="menu_close">close</div>
-            <div class="menu_nav_container">
-                <nav class="menu_nav text-center">
-                    <ul>
+                    <ul class="d-flex flex-row align-items-center justify-content-center">
                         {% if page == "home" %}
-                            <li class="active">{% else %}
-                            <li>{% endif %}<a href="{% url 'main:home' %}">Home</a></li>
-
-                        {% if page == "ourTeam" %}
-                            <li class="active">{% else %}
-                            <li>{% endif %}<a href="{% url 'main:OurTeam' %}">Core Team</a></li>
+                            <li class="active topbar-styles">
+                        {% else %}
+                            <li class="topbar-styles">
+                        {% endif %}
+                        <a href="{% url 'main:home' %}">Home</a></li>
+                        <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
+                        <li class="topbar-styles"><a href="{% url 'main:aboutus' %}">About Us</a></li>
                         {% for navbaroption in navbaroptions %}
                             <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false"
                                    style="color: white    ">{{ navbaroption.title }}</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     {% for suboption in navbaroption.sub_options.all %}
-                                        <a class="dropdown-item"
-                                           style="color: black; font-family: 'Poppins', sans-serif;"
+                                        <a class="dropdown-item" style="color: black; font-family: 'Poppins', sans-serif;"
                                            href="{{ suboption.get_absolute_url }}">{{ suboption.title }}</a>
                                     {% endfor %}
                                 </div>
@@ -169,58 +73,165 @@
                         {% endfor %}
                         {% if user.is_authenticated %}
                             {% if userprofile.teamId != None %}
-                                {% if page == "team" %}
-                                    <li class="active">{% else %}
-                                    <li>{% endif %}
-                            <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+    
+                                <li style="margin-right: 52px" class="topbar-styles">
+                                    <a>Team</a>
+                                    <ul>
+                                        <a href="{% url 'accounts:myTeam' %}">
+                                            <li class="topbar-styles">Details</li>
+                                        </a>
+                                        <a href="{% url 'accounts:leaveTeam' %}">
+                                            <li class="topbar-styles">Leave Team</li>
+                                        </a>
+                                        <a href="{% url 'registration:remove_player' %}">
+                                            <li class="topbar-styles">Remove player</li>
+                                        </a>
+                                    </ul>
+                                </li>
+    
+    
                             {% else %}
-                                <li><a href="{% url 'accounts:joinTeam' %}">Join
-                                    Team</a></li>
-                                <li><a href="{% url 'registration:team' %}"
-                                       >Create
-                                    Team</a></li>
+    
+    
+                                <li class="topbar-styles"><a>Team</a>
+                                    <ul>
+                                        <a href="{% url 'accounts:joinTeam' %}">
+                                            <li class="topbar-styles">Join Team</li>
+                                        </a>
+                                        <a href="{% url 'registration:team' %}">
+                                            <li class="topbar-styles">Create Team</li>
+                                        </a>
+                                    </ul>
+                                </li>
+    
+    
+    
+    
                             {% endif %}
-                            {% if page == "profile" %}
-                                <li class="active">{% else %}
-                                <li>{% endif %}
-                        <a href="{% url 'accounts:profile' %}">Profile</a></li>
-                            {% if page == "team" %}
-                                <li><a href="{% url 'accounts:leaveTeam' %}"
-                                       >Leave
-                                    Team</a></li>{% endif %}
-                            <li><a href="{% url 'logout' %}">Logout</a></li>
                         {% else %}
-                            <li><a href="{% url 'login' %}">Login</a></li>
-                            <li><a herf="{% url 'accounts:register' %}">Register</a>
+                            <li class="topbar-styles">
+                                <a href="{% url 'accounts:register' %}">Register</a>
                             </li>
+    
                         {% endif %}
                     </ul>
                 </nav>
+    
+                <!-- Social -->
+                <div class=" header_social">
+                    <nav class="main_nav">
+                        <ul class="d-flex flex-row align-items-center justify-content-start">
+                            {% if user.is_authenticated %}
+                                <li class="topbar-styles"><a>{{ userprofile.user.first_name }}</a>
+                                    <ul>
+                                        <a href="{% url 'accounts:profile' %}">
+                                            <li class="topbar-styles">Profile</li>
+                                        </a>
+                                        <a href="{% url 'logout' %}">
+                                            <li class="topbar-styles">Logout</li>
+                                        </a>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="topbar-styles"><a href="{% url 'login' %}">Login</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+    
+                </div>
+    
+                <!-- Hamburger -->
+                <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+    
             </div>
-            <div class="social menu_social">
-                <ul class="d-flex flex-row align-items-center justify-content-start">
-                    <li><a href="https://www.facebook.com/Varchas.IITRajasthan/"><i class="fa fa-facebook"
-                                                                                    aria-hidden="true"></i></a></li>
-                    <li><a href="https://www.instagram.com/varchas_iitj/"><i class="fa fa-instagram"
-                                                                             aria-hidden="true"></i></a>
-                    </li>
-                </ul>
+        </header>
+    
+        <!-- Menu -->
+    
+        <div class="menu">
+            <div class="menu_door"></div>
+    
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_close">close</div>
+                <div class="menu_nav_container">
+                    <nav class="menu_nav text-center">
+                        <ul>
+                            {% if page == "home" %}
+                                <li class="active">{% else %}
+                                <li>{% endif %}<a href="{% url 'main:home' %}">Home</a></li>
+    
+                            {% if page == "ourTeam" %}
+                                <li class="active">{% else %}
+                                <li>{% endif %}<a href="{% url 'main:OurTeam' %}">Core Team</a></li>
+                            {% for navbaroption in navbaroptions %}
+                                <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false"
+                                       style="color: white    ">{{ navbaroption.title }}</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        {% for suboption in navbaroption.sub_options.all %}
+                                            <a class="dropdown-item"
+                                               style="color: black; font-family: 'Poppins', sans-serif;"
+                                               href="{{ suboption.get_absolute_url }}">{{ suboption.title }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            {% if user.is_authenticated %}
+                                {% if userprofile.teamId != None %}
+                                    {% if page == "team" %}
+                                        <li class="active">{% else %}
+                                        <li>{% endif %}
+                                <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'accounts:joinTeam' %}">Join
+                                        Team</a></li>
+                                    <li><a href="{% url 'registration:team' %}"
+                                           >Create
+                                        Team</a></li>
+                                {% endif %}
+                                {% if page == "profile" %}
+                                    <li class="active">{% else %}
+                                    <li>{% endif %}
+                            <a href="{% url 'accounts:profile' %}">Profile</a></li>
+                                {% if page == "team" %}
+                                    <li><a href="{% url 'accounts:leaveTeam' %}"
+                                           >Leave
+                                        Team</a></li>{% endif %}
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="{% url 'accounts:register' %}">Register</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="social menu_social">
+                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                        <li><a href="https://www.facebook.com/Varchas.IITRajasthan/"><i class="fa fa-facebook"
+                                                                                        aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/varchas_iitj/"><i class="fa fa-instagram"
+                                                                                 aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+    
+        {% block body %}
+    
+        {% endblock %}
+    
     </div>
-
-    {% block body %}
-
-    {% endblock %}
-
-</div>
+  </body>
+</html>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
     function topbar2() {
  document.getElementsByTagName("header")[0].setAttribute("style", "background-color: rgba(255,255,255,0);border-bottom:none;");
     }
     function topbar() {
         var scrollTop = $(this).scrollTop();
-        console.log(scrollTop)
         if (scrollTop <= 0) {
             console.log("top");
             document.getElementsByTagName("header")[0].setAttribute("style", "background-color: rgba(255,255,255,0);border-bottom:none;");
@@ -231,3 +242,34 @@
 
     }
 </script>
+<script>
+$(document).ready(function() {
+
+// Gets the video src from the data-src on each button
+console.log(1);
+var $videoSrc;  
+$('.video-btn').click(function() {
+    $videoSrc = $(this).data( "src" );
+});
+console.log($videoSrc);
+$('#myModal').on('shown.bs.modal', function (e) {
+$("#video").attr('src',$videoSrc); 
+})
+$('#myModal').on('hide.bs.modal', function (e) {
+    $("#video").attr('src',$videoSrc); 
+}) 
+});
+  </script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>

@@ -474,7 +474,7 @@ section {
 }
 
 .main_nav ul li a {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     color: #f4f4f4;
     text-transform: uppercase;
@@ -482,7 +482,7 @@ section {
 
 .main_nav ul li a:hover,
 .main_nav ul li.active a {
-    color: #ff7315;
+    color: purple;
 }
 
 .header_social {
@@ -1383,7 +1383,7 @@ section {
 
 100% {
     position: absolute;
-    left: 55%;
+    left: 52%;
     top: 100%;
     opacity: 1;
 }
@@ -1393,14 +1393,14 @@ section {
 0% {
     position: absolute;
     top: 200%;
-    left: 55%;
+    left: 45%;
     opacity: 0;
 }
 
 65% {
     position: absolute;
     top: 200%;
-    left: 60%;
+    left: 55%;
     opacity: 0;
 }
 
@@ -1413,7 +1413,7 @@ section {
 
 100% {
     position: absolute;
-    left: 65%;
+    left: 63%;
     top: 100%;
     opacity: 1;
 }
@@ -1555,11 +1555,11 @@ a li {
     color: white;
 }
 
-li.topbar-styles:hover {
+/* a.topbar-styles:hover {
     background: #fff;
     color: darkorange;
     cursor: pointer;
-}
+} */
 
 ul li ul {
     background: darkorange;
@@ -1744,7 +1744,7 @@ ul li ul li a {
 
       100% {
         position: absolute;
-        left: 55%;
+        left: 52%;
         top: -200%;
         opacity: 1;
       }

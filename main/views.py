@@ -72,3 +72,6 @@ class OurTeamViewSet(viewsets.ModelViewSet):
     queryset = OurTeam.objects.all()
     serializer_class = OurTeamSerializer
     permission_classes = [permissions.IsAdminUser]
+
+def aboutus(request):
+    return render(request, 'main/aboutus.html')
