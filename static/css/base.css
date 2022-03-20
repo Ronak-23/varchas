@@ -65,7 +65,7 @@ body {
   justify-content: space-between;
 }
 .logo img {
-  height: 2.5rem;
+  height: 9.5rem;
 }
 
 /* .menu {
@@ -466,7 +466,7 @@ body {
   .title h1 {
     margin: 0;
     padding: 0;
-    height: 50px;
+    height: 80px;
     text-align: center;
     display: flex;
     justify-content: center;

@@ -11,10 +11,12 @@
   </head>
   <body>
     <div class="wrap">
+      <a href="{% url 'main:home' %}"><div class="close"><button>X</button></div></a>
       <div class="main">
         <div class="form">
-          <form  method="post" id="login">
+          <form  method="post" id="login" autocomplete="off">
             {% csrf_token %} {% for field in form %} {% if field.label == "State" or field.label == "Gender" or field.label == "Current year" or field.label == "Accommodation required" %}
+            <input autocomplete="false" name="hidden" type="text" style="display:none;">
                     <div style="padding-top: 1vh; padding-bottom: 2vh;">
                         {{ field.label }}{% if field.field.required %}*{% endif %} : {{ field }}
                     </div>
@@ -42,37 +44,7 @@
                     {% endif %} {% endfor %} {% endif %}
                     <input type="submit" value="REGISTER" />
                 </form>
-                <!-- <a href="{% url 'main:home' %}" style="position: absolute; right: 35%; top: 6%;">
-                    <button style="background-color:transparent; color:white;border: none; cursor: pointer;">
-						<h1>Home</h1>
-					</button>
-                </a> -->
-            <!-- <label for="email">email</label>
-            <input type="text" id="email" name="emailname" />
-            <label for="password">password</label>
-            <input type="text" id="password" name="passwordname" />
-            <label for="confirm password">confirm password</label>
-            <input
-              type="text"
-              id="confirm password"
-              name="confirm passwordname"
-            />
-            <label for="college">COLLEGE</label>
-            <input type="text" id="college" name="collegename" />
-            <label for="sport">SPORT</label>
-            <input type="text" id="sport" name="sportname" />
-            <label for="college">COLLEGE</label>
-            <input type="text" id="college" name="collegename" />
-            <label for="sport">SPORT</label>
-            <input type="text" id="sport" name="sportname" />
-            <label for="college">COLLEGE</label>
-            <input type="text" id="college" name="collegename" />
-            <label for="college">COLLEGE</label>
-            <input type="text" id="college" name="collegename" />
-            <label for="sport">SPORT</label>
-            <input type="text" id="sport" name="sportname" />
-            <label for="college">COLLEGE</label>
-            <input type="text" id="college" name="collegename" /> -->
+
           </form>
         </div>
       </div>
@@ -100,3 +72,11 @@
 </body>
 
 </html>
+
+<script>
+  $(".input100").focus(function() {
+    var height = $("body").css('height');
+    $("body").css('height', height);
+});
+</script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>

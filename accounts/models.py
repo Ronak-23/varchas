@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
-        ('T', 'Transgender'),
+        ('T', 'Other'),
     )
     DAYS_CHOICES = (
         ('1', 'One'),

@@ -44,6 +44,24 @@ body {
   align-items: center;
   justify-content: center;
 }
+.close{
+  position:absolute;
+  right:5vmin;
+  top:5vmin; 
+}
+.close button{
+    font-size:2rem;
+    color:white;
+    font-weight: 800;
+    background:none;
+    border:none;
+   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+   transition: 0.3s linear;
+}
+.close button:hover{
+  text-shadow: none;
+  cursor:pointer;
+}
 form {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -86,6 +104,11 @@ label {
   .main {
     width: 100vw;
   }
+  /* .close{
+    position:absolute;
+    right:10vmin;
+    top:45vmin; 
+  } */
 }
 @media screen and (max-width: 915px) {
   .main {
@@ -96,6 +119,10 @@ label {
   .main {
     width: 100vw;
     height: 90vh;
+  }
+  form {
+    width: 35vw;
+    padding: 0;
   }
 }
 @media screen and (max-width: 515px) {
@@ -118,7 +145,7 @@ label {
   .main {
     height: 55vh;
   }
-  input[type="text"],
+  input[type="text"],input[type="password"],input[type="email"],
   select {
     display: block;
     width: 80%;
