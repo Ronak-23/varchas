@@ -48,10 +48,12 @@ def downloadExcel(request):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
     teams = TeamRegistration.objects.all().order_by('-captian__user__date_joined')
+    users = UserProfile.objects.all()
     for team in teams:
         members = []
-        for member in team.members.all():
-            members.append(member.user.first_name)
+        for user in users:
+            if user.teamId== team:
+                members.append(user.user.first_name)
         row_num = row_num + 1
         ws.write(row_num, 0, team.teamId, font_style)
         ws.write(row_num, 1, team.get_sport_display(), font_style)
@@ -76,7 +78,7 @@ def downloadExcel(request):
         ws.write(row_num, 2, user.phone, font_style)
         ws.write(row_num, 3, user.gender, font_style)
         ws.write(row_num, 4, user.college, font_style)
-        ws.write(row_num, 5, user.teamId, font_style)
+        ws.write(row_num, 5, user.teamId.teamId if user.teamId!=None else "" , font_style)
         ws.write(row_num, 7, str(user.user.date_joined)[:11])
 
     wb.save(response)
