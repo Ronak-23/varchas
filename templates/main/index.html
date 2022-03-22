@@ -334,7 +334,7 @@
             {% endif %}
             {% else %}
             <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>
-            <a><button>Instructions</button></a>
+            <a href="#popup1"><button>Instructions</button></a>
             {% endif %}
       </div>
       <svg
@@ -352,6 +352,67 @@
         and thus tones the spirit just as exercise conditions the body.”
       </p>
       <h3>-Arnold Schwarzenegger</h3>
+    </div>
+    <div id="popup1" class="overlay-pop" style="z-index: 10000;">
+      <div class="popup">
+        <h3>Step by step guide</h3><br>
+        <a class="close" href="#about">&times;</a>
+        <div class="content">
+          <ol>
+            <li dir="ltr">
+              <p dir="ltr">
+                Register to create an account.
+              </p>
+            </li>
+            <li dir="ltr">
+              <p dir="ltr">
+                Log into your account.
+              </p>
+            </li>
+            <li dir="ltr">
+              <p dir="ltr">
+                For the captain (or individual sports):
+              </p>
+            </li>
+            <ol>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Create a team by clicking on the “Create Team” button.
+                </p>
+              </li>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Obtain the VA number by successfully creating a team. (Eg:
+                  VA-ATH-HAR00)
+                </p>
+              </li>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Share the VA number with your team.
+                </p>
+              </li>
+            </ol>
+            <li dir="ltr">
+              <p dir="ltr">
+                For other team members:
+              </p>
+            </li>
+            <ol>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Click “Join Team” button and enter the VA number of the team.
+                </p>
+              </li>
+            </ol>
+            <li dir="ltr">
+              <p dir="ltr">
+                Get Your Game On!
+              </p>
+            </li>
+          </ol>
+
+        </div>
+      </div>
     </div>
     <div class="cards">
       <a href="{% url 'events:cricket' %}"><<div class="card">
