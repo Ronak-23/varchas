@@ -6,7 +6,7 @@
             <div class="col-2 themed-grid-col"><b>Sport</b></div>
             <div class="col-2 themed-grid-col"><b>Captian</b></div>
             <div class="col-2 themed-grid-col"><b>College</b></div>
-            <div class="col-2 themed-grid-col"><b>Team Members</b></div>
+            <div class="col-2 themed-grid-col"><b>Captain no.</b></div>
             <div class="col-2 themed-grid-col"><b>Date Created</b></div>
         </div>
         {% for team in teams %}
@@ -15,7 +15,7 @@
             <div class="col-2 themed-grid-col">{{team.get_sport_display}}</div>
             <div class="col-2 themed-grid-col">{{team.captian.user.first_name}}</div>
             <div class="col-2 themed-grid-col">{{team.college}}</div>
-            <div class="col-2 themed-grid-col">{% for member in team.members.all %} {{member.user.first_name}} {{member.user.last_name}}<br> {% endfor %} </div>
+            <div class="col-2 themed-grid-col"> {{team.captian.phone}} </div>
             <div class="col-2 themed-grid-col">{{team.captian.user.date_joined}}</div>
         </div>
         {% endfor %}

@@ -123,7 +123,7 @@ select {
   border: 1px solid white;
   box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 5px #e60073, 0 0 5px #e60073,
     0 0 5px #e60073, 0 0 5px #e60073, 0 0 5px #e60073 inset;
-  color: white;
+  color: black;
   background: none;
 }
 .form {
@@ -150,8 +150,15 @@ select {
   font-weight: 400;
 }
 
+.login-btn:hover {
+  background-color: #e237ba;
+  /* box-shadow: none; */
+}
+.txt2:hover{
+  color: #e237ba !important;
+}
 input[type="submit"]:hover {
-  background-color: #fd2acc;
+  background-color: #e237ba;
   box-shadow: none;
 }
 @media screen and (max-width: 380px) {
