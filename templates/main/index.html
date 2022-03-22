@@ -327,14 +327,16 @@
       </p>
       <div class="buttons">
         {% if user.is_authenticated %}
-            {% if userprofile.teamId != None %}
-            <a href="{% url 'accounts:myTeam' %}"> <button>Team Details</button></a>
-            <a href="{% url 'accounts:joinTeam' %}" ><button>Join Team</button></a>
-           <a href="{% url 'registration:team' %}" ><button>Create Team</button></a>
+            {% if userprofile.teamId == None %}
+              <a href="#popup1"><button >Instructions</button></a>
+              <a href="{% url 'accounts:joinTeam' %}" ><button>Join Team</button></a>
+              <a href="{% url 'registration:team' %}" ><button>Create Team</button></a>
+            {% elif userprofile.teamId != None %}
+              <a href="{% url 'accounts:myTeam' %}"> <button>Team Details</button></a>
             {% endif %}
             {% else %}
-            <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>
-            <a href="#popup1"><button>Instructions</button></a>
+              <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>
+              <a href="#popup1"><button >Instructions</button></a>
             {% endif %}
       </div>
       <svg
