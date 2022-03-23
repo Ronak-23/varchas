@@ -23,12 +23,24 @@ def dashboard(request):
 
 @login_required(login_url='login')
 def dashboardTeams(request):
+    if not request.user.is_superuser:
+        return render(request, "404")
     teams = TeamRegistration.objects.all().order_by('-captian__user__date_joined')
-    return render(request, 'adminportal/dashboardTeams.html', {'teams': teams})
+    users = UserProfile.objects.all()
+    members={}
+    for team in teams:
+        member = []
+        for user in users:
+            if user.teamId== team:
+                member.append(user.user.first_name)
+        members[team.teamId]=(len(member))
+    return render(request, 'adminportal/dashboardTeams.html', {'teams': teams, 'users': users, 'members': members})
 
 
 @login_required(login_url='login')
 def dashboardUsers(request):
+    if not request.user.is_superuser:
+        return render(request, "404")
     users = UserProfile.objects.all().order_by('-user__date_joined')
     return render(request, 'adminportal/dashboardUsers.html', {'users': users})
 
