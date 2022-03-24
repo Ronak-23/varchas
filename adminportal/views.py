@@ -22,11 +22,19 @@ def dashboard(request):
 
 
 @login_required(login_url='login')
-def dashboardTeams(request):
+def dashboardTeams(request, sport=0):
     if not request.user.is_superuser:
         return render(request, "404")
-    teams = TeamRegistration.objects.all().order_by('-captian__user__date_joined')
+    if request.method == 'POST' :
+        sport= request.POST.get('sport')
+    if sport == 0 or sport=='0':
+        teams = TeamRegistration.objects.all().order_by('-captian__user__date_joined')
+    elif sport == '11':
+        teams = TeamRegistration.objects.all().exclude(college__iexact='IITJ').exclude(college__iexact='IIT Jodhpur').order_by('-captian__user__date_joined')
+    else:
+        teams = TeamRegistration.objects.filter(sport=sport).order_by('-captian__user__date_joined')
     users = UserProfile.objects.all()
+    sports=['All', 'Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Football', 'Table Tenis', 'Tenis', 'Volleyball', 'Squash','Exclude IITJ']
     members={}
     for team in teams:
         member = []
@@ -34,7 +42,7 @@ def dashboardTeams(request):
             if user.teamId== team:
                 member.append(user.user.first_name)
         members[team.teamId]=(len(member))
-    return render(request, 'adminportal/dashboardTeams.html', {'teams': teams, 'users': users, 'members': members})
+    return render(request, 'adminportal/dashboardTeams.html', {'teams': teams, 'users': users, 'members': members, 'sports': sports, 'sport_select': sport})
 
 
 @login_required(login_url='login')

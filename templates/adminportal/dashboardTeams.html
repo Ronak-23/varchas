@@ -1,6 +1,15 @@
 {% extends 'adminportal/base.html' %}
 {% load static %}
 {% block body %}
+        <form action="{% url 'adminportal:dteams' %}" method="post">
+            {% csrf_token %}
+            <select name="sport" id="">
+            {% for sport in sports%}
+                <option value="{{forloop.counter0}}" {% if sport_select == forloop.counter0 %}selected {% endif %}>{{sport}}</option>
+            {% endfor %}
+            </select>
+            <input type="submit" value="Filter" class="btn btn-primary" style="margin: 4px;">
+        </form>
         <div class="row mb-12">
             <div class="col-2 themed-grid-col"><b>Team Name</b></div>
             <div class="col-2 themed-grid-col"><b>Sport</b></div>
