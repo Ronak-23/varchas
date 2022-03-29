@@ -63,7 +63,7 @@ def downloadExcel(request):
     row_num = 0
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
-    columns = ['TeamID', 'Sport', 'Captian', 'College', 'Members', 'Created on']
+    columns = ['TeamID', 'Sport', 'Captain', 'Captain no.', 'College', 'Members', 'Created on']
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
@@ -78,9 +78,10 @@ def downloadExcel(request):
         ws.write(row_num, 0, team.teamId, font_style)
         ws.write(row_num, 1, team.get_sport_display(), font_style)
         ws.write(row_num, 2, team.captian.user.first_name, font_style)
-        ws.write(row_num, 3, team.college, font_style)
-        ws.write(row_num, 4, ", ".join(members), font_style)
-        ws.write(row_num, 5, str(team.captian.user.date_joined)[:11])
+        ws.write(row_num, 3, team.captian.phone, font_style)
+        ws.write(row_num, 4, team.college, font_style)
+        ws.write(row_num, 5, ", ".join(members), font_style)
+        ws.write(row_num, 6, str(team.captian.user.date_joined)[:11])
 
     ws = wb.add_sheet("Users")
     row_num = 0
