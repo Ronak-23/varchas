@@ -25,6 +25,12 @@ class TeamFormationView(CreateView):
                 message += "\nYou have to register again to join another team. \nContact Varchas administrators."
                 return HttpResponse(message, content_type="text/plain")
             team = form.save()
+            if team.sport == '5':
+                message = "Registration for Cricket has been closed."
+                return HttpResponse(message, content_type="text/plain")
+            if ((team.sport == '3' or team.sport == '9') and user.gender == 'M'):
+                message = "Registration for Volleyball(M) and basketball(M) has been closed."
+                return HttpResponse(message, content_type="text/plain")
             spor = TeamRegistration.SPORT_CHOICES[int(team.sport)-1][1][:3]
             team.teamId = "VA-" + spor[:3].upper() + '-' + user.user.username[:3].upper() + "{}".format(int(random()*100))
             team.captian = user
