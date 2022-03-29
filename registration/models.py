@@ -15,7 +15,7 @@ class TeamRegistration(models.Model):
         ('9', 'Volleyball'),
         ('10', 'Squash'),
     )
-    teamId = models.CharField(max_length=15, unique=True, blank=True)
+    teamId = models.CharField(max_length=15, unique=True, blank=True, null=True)
     sport = models.CharField(max_length=2, choices=SPORT_CHOICES)
     college = models.CharField(max_length=128)
     captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True)
