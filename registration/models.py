@@ -22,4 +22,6 @@ class TeamRegistration(models.Model):
     score = models.IntegerField(default=0)
 
     def __str__(self):
+        if(self.teamId==None):
+            return "None"
         return self.teamId
