@@ -128,3 +128,7 @@ def payment(request):
 
 def paymentCompletion(request):
     return render(request, 'main/paymentCF.html')
+
+
+def privacy(request):
+    return render(request, 'privacy.html')
