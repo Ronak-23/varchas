@@ -19,7 +19,6 @@ urlpatterns = [
     path('football', football, name='football'),
     path('volleyball', volleyball, name='volleyball'),
     path('chess', chess, name='chess'),
-    path('squash', squash, name='squash'),
     path('TT', TT, name='TT'),
     path('badminton', badminton, name='badminton'),
     path('tennis', tennis, name='tennis'),

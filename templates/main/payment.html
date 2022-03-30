@@ -28,7 +28,7 @@
         <h2>Please ask your captain to complete your payment. Ignore if already done.</h2>
         {% else %}
         <h2>{{sports}}: INR {{amount}}</h2>
-        <h2>Accommodation: INR {{accommodation}}</h2>
+        <h2>Accommodation: INR 1099/player (If applicable)</h2>
         <h2>Total: INR {{userprofile.amount_required}}</h2>
         <a href="{%url 'main:paymentCF' %}"><button>PAY NOW</button></a>
         <h2 style="color: red;">Instructions: Please select one ticket for the sport you are taking part in and the no. of tickets required for accomodation for your whole team.</h2>
