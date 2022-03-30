@@ -75,3 +75,56 @@ class OurTeamViewSet(viewsets.ModelViewSet):
 
 def aboutus(request):
     return render(request, 'main/aboutus.html')
+
+
+def payment(request):
+    if not request.user.is_authenticated:
+        return render(request, "404")
+    if request.user.username != "":
+        userprofile = get_object_or_404(UserProfile, user=request.user)
+    context = {}
+    sports=['All', 'Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Football', 'Table Tennis', 'Tennis', 'Volleyball', 'Squash']
+    context['userprofile'] = userprofile
+    context['page'] = "payment"
+    if(userprofile.teamId==None):
+        context['amount']= None
+    else:
+        context['captain'] = userprofile.teamId.captian==userprofile
+        context['amount']= 0
+        sport=userprofile.teamId.sport
+        context['sports'] = sports[int(sport)]
+        if(sport=='1' and userprofile.teamId.captian==userprofile):
+            context['amount'] = 100
+        elif(sport=='2' and userprofile.teamId.captian==userprofile and userprofile.gender== 'M'):
+            context['amount'] = 1000
+        elif(sport=='2' and userprofile.teamId.captian==userprofile and userprofile.gender== 'F'):
+            context['amount'] = 600
+        elif((sport=='3' or sport=='9') and userprofile.teamId.captian==userprofile and userprofile.gender== 'M'):
+            context['amount'] = 2000
+        elif((sport=='3' or sport=='9') and userprofile.teamId.captian==userprofile and userprofile.gender== 'F'):
+            context['amount'] = 1000
+        elif(sport=='4'):
+            context['amount']=0
+        elif((sport=='5' or sport=='6') and userprofile.teamId.captian==userprofile):
+            context['amount'] = 3500
+        elif((sport=='7' or sport=='8') and userprofile.teamId.captian==userprofile and userprofile.gender== 'M'):
+            context['amount'] = 1000
+        elif((sport=='7' or sport=='8') and userprofile.teamId.captian==userprofile and userprofile.gender== 'F'):
+            context['amount'] = 600
+        elif(sport=='10' and userprofile.teamId.captian==userprofile):
+            context['amount'] = 800
+    if(userprofile.accommodation_required == 'Y'):
+        
+        context['accommodation'] = 1099
+    else:
+        context['accommodation'] = 0
+    if(context['captain']):
+        if(context['amount']==None):
+            userprofile.amount_required = context['accommodation']
+        else:
+            userprofile.amount_required = context['amount'] + context['accommodation']
+    return render(request, 'main/payment.html', context)
+
+
+def paymentCompletion(request):
+    return render(request, 'main/paymentCF.html')

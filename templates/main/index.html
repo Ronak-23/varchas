@@ -333,6 +333,8 @@
               <a href="{% url 'registration:team' %}" ><button>Create Team</button></a>
             {% elif userprofile.teamId != None %}
               <a href="{% url 'accounts:myTeam' %}"> <button>Team Details</button></a>
+              <a href="{% url 'main:payment' %}"><button>Payment</button></a>
+              <a href="{% url 'accounts:leaveTeam' %}"><button>Leave Team</button></a>
             {% endif %}
             {% else %}
               <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>

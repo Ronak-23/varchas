@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndexView, NavBarSubOptionsPageView, OurTeamView, comingSoon, OurTeamViewSet, aboutus
+from .views import IndexView, NavBarSubOptionsPageView, OurTeamView, comingSoon, OurTeamViewSet, aboutus, payment, paymentCompletion
 from django.conf.urls import url, include
 from rest_framework import routers
 
@@ -13,6 +13,8 @@ urlpatterns = [
     path('', IndexView.as_view(), name='home'),
     path('OurTeam', OurTeamView.as_view(), name='OurTeam'),
     path('aboutus', aboutus, name='aboutus'),
+    path('payment', payment, name='payment'),
+    path('paymentCF', paymentCompletion, name='paymentCF'),
     path('<slug:slug>', NavBarSubOptionsPageView.as_view(),
          name='navbarsuboptionpage'),
     path('mainapi/', include(router.urls)),

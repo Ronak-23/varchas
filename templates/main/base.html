@@ -90,7 +90,7 @@
                                         </a>
                                     </ul>
                                 </li>
-    
+                                <li class="topbar-styles"><a href="{% url 'main:payment' %}">Payment</a></li>
     
                             {% else %}
     
@@ -187,6 +187,10 @@
                                         <li class="active">{% else %}
                                         <li>{% endif %}
                                 <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+                                <li><a href="{% url 'accounts:leaveTeam' %}"
+                                    >Leave
+                                 Team</a></li>
+                                 <li class="topbar-styles"><a href="{% url 'main:payment' %}">Payment</a></li>
                                 {% else %}
                                     <li><a href="{% url 'accounts:joinTeam' %}">Join
                                         Team</a></li>
