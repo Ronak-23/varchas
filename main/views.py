@@ -83,7 +83,7 @@ def payment(request):
     if request.user.username != "":
         userprofile = get_object_or_404(UserProfile, user=request.user)
     context = {}
-    sports=['All', 'Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Football', 'Table Tennis', 'Tennis', 'Volleyball', 'Squash']
+    sports=['All', 'Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Football', 'Table Tennis', 'Tennis', 'Volleyball', 'Badminton-mixed doubles']
     context['userprofile'] = userprofile
     context['page'] = "payment"
     if(userprofile.teamId==None):
@@ -112,7 +112,7 @@ def payment(request):
         elif((sport=='7' or sport=='8') and userprofile.teamId.captian==userprofile and userprofile.gender== 'F'):
             context['amount'] = 600
         elif(sport=='10' and userprofile.teamId.captian==userprofile):
-            context['amount'] = 800
+            context['amount'] = 400
     if(userprofile.accommodation_required == 'Y'):
         
         context['accommodation'] = 1099
