@@ -298,9 +298,9 @@ body {
 .card:hover {
   background-image: none;
   background-color: transparent;
-  border: 2px solid white;
-  height: 18rem;
-  width: 18rem;
+  box-shadow: 0px 0px 0px 1.55rem #100531 inset, 0px 0px 0px 1.7rem white inset;
+  justify-content: center;
+  /* font-size: 2rem; */
 }
 .reg {
   background-image: url("../images/bg2.png");
