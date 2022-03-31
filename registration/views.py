@@ -37,6 +37,10 @@ class TeamFormationView(CreateView):
                 message = "Registration for Football has been closed."
                 team.delete()
                 return HttpResponse(message, content_type="text/plain")
+            if team.sport == '4':
+                message = "Registration for Chess will reopen soon."
+                team.delete()
+                return HttpResponse(message, content_type="text/plain")
             spor = TeamRegistration.SPORT_CHOICES[int(team.sport)-1][1][:3]
             team.teamId = "VA-" + spor[:3].upper() + '-' + user.user.username[:3].upper() + "{}".format(int(random()*100))
             team.captian = user
