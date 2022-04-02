@@ -25,18 +25,18 @@ class TeamFormationView(CreateView):
                 message += "\nYou have to register again to join another team. \nContact Varchas administrators."
                 return HttpResponse(message, content_type="text/plain")
             team = form.save()
-            # if team.sport == '5':
-            #     message = "Registration for Cricket has been closed."
-            #     team.delete()
-            #     return HttpResponse(message, content_type="text/plain")
-            # if ((team.sport == '3' or team.sport == '9') and user.gender == 'M'):
-            #     message = "Registration for Volleyball(M) and basketball(M) has been closed."
-            #     team.delete()
-            #     return HttpResponse(message, content_type="text/plain")
-            # if team.sport == '6':
-            #     message = "Registration for Football has been closed."
-            #     team.delete()
-            #     return HttpResponse(message, content_type="text/plain")
+            if team.sport == '5':
+                message = "Registration for Cricket has been closed."
+                team.delete()
+                return HttpResponse(message, content_type="text/plain")
+            if ((team.sport == '3' or team.sport == '9') and user.gender == 'M'):
+                message = "Registration for Volleyball(M) and basketball(M) has been closed."
+                team.delete()
+                return HttpResponse(message, content_type="text/plain")
+            if team.sport == '6':
+                message = "Registration for Football has been closed."
+                team.delete()
+                return HttpResponse(message, content_type="text/plain")
             if team.sport == '4':
                 message = "Registration for Chess will reopen soon."
                 team.delete()
