@@ -34,7 +34,7 @@ def dashboardTeams(request, sport=0):
     else:
         teams = TeamRegistration.objects.filter(sport=sport).order_by('-captian__user__date_joined')
     users = UserProfile.objects.all()
-    sports=['All', 'Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Football', 'Table Tenis', 'Tenis', 'Volleyball', 'Squash','Exclude IITJ']
+    sports=['All', 'Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Football', 'Table Tenis', 'Tenis', 'Volleyball', 'Badminton-mixed doubles','Exclude IITJ']
     members={}
     for team in teams:
         member = []

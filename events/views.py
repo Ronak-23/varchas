@@ -1,9 +1,9 @@
 from django.views.generic import FormView
 from .forms import MatchForm
-from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess, Squash
+from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess, Squash, Badminton, TT, Tennis
 from django.contrib import messages
 from rest_framework import viewsets
-from .serializers import CricketSerializer, FootballSerializer, VolleyballSerializer, ChessSerializer, SquashSerializer
+from .serializers import CricketSerializer, FootballSerializer, VolleyballSerializer, ChessSerializer, SquashSerializer, BadmintonSerializer, TTSerializer, TennisSerializer
 from rest_framework import permissions
 from django.shortcuts import render
 
@@ -80,6 +80,23 @@ class SquashViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAdminUser]
 
 
+class BadmintonViewSet(viewsets.ModelViewSet):
+    queryset = Badminton.objects.all()
+    serializer_class = BadmintonSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+
+class TTViewSet(viewsets.ModelViewSet):
+    queryset = TT.objects.all()
+    serializer_class = TTSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+class TennisViewSet(viewsets.ModelViewSet):
+    queryset = Tennis.objects.all()
+    serializer_class = TennisSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+
 def cricket(request):
     return render(request, 'events/cricket.html')
 
@@ -122,3 +139,9 @@ def informals(request):
 
 def basketball(request):
     return render(request, 'events/basketball.html')
+
+def valorant(request):
+    return render(request, 'events/valorant.html')
+
+def bgmi(request):
+    return render(request, 'events/bgmi.html')

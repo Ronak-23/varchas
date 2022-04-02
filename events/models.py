@@ -28,7 +28,7 @@ class Event(models.Model):
     ('9', 'Volleyball'),
     ('10', 'Marathon'),
     ('11', 'SOCH'),
-    ('12', 'Squash'),
+    ('12', 'Badminton-Mixed doubles'),
     )
     event = models.CharField(max_length=2, choices=EVENT_CHOICES, default=1)
     venue = models.CharField(max_length=3, choices=VENUE_CHOICES)
@@ -164,3 +164,70 @@ class Squash(models.Model):
 
     def qscore(self):
         return [self.t1s1, self.t1s2, self.t1s3, self.t1s4, self.t1s5, self.t2s1, self.t2s2, self.t2s3, self.t2s4, self.t2s5]
+
+
+class Badminton(models.Model):
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
+    t1s1 = models.SmallIntegerField(default=0)
+    t2s1 = models.SmallIntegerField(default=0)
+    t1s2 = models.SmallIntegerField(default=0)
+    t2s2 = models.SmallIntegerField(default=0)
+    t1s3 = models.SmallIntegerField(default=0)
+    t2s3 = models.SmallIntegerField(default=0)
+    t1sw = models.SmallIntegerField(default=0)
+    t2sw = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.match.event_id
+
+    def score(self):
+        return [self.t1sw, self.t2sw]
+
+    def qscore(self):
+        return [self.t1s1, self.t1s2, self.t1s3, self.t2s1, self.t2s2, self.t2s3]
+
+
+class TT(models.Model):
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
+    t1s1 = models.SmallIntegerField(default=0)
+    t2s1 = models.SmallIntegerField(default=0)
+    t1s2 = models.SmallIntegerField(default=0)
+    t2s2 = models.SmallIntegerField(default=0)
+    t1s3 = models.SmallIntegerField(default=0)
+    t2s3 = models.SmallIntegerField(default=0)
+    t1sw = models.SmallIntegerField(default=0)
+    t2sw = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.match.event_id
+
+    def score(self):
+        return [self.t1sw, self.t2sw]
+
+    def qscore(self):
+        return [self.t1s1, self.t1s2, self.t1s3, self.t2s1, self.t2s2, self.t2s3]
+
+
+class Tennis(models.Model):
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
+    t1s1 = models.SmallIntegerField(default=0)
+    t2s1 = models.SmallIntegerField(default=0)
+    t1s2 = models.SmallIntegerField(default=0)
+    t2s2 = models.SmallIntegerField(default=0)
+    t1s3 = models.SmallIntegerField(default=0)
+    t2s3 = models.SmallIntegerField(default=0)
+    t1s4 = models.SmallIntegerField(default=0)
+    t2s4 = models.SmallIntegerField(default=0)
+    t1s5 = models.SmallIntegerField(default=0)
+    t2s5 = models.SmallIntegerField(default=0)
+    t1sw = models.SmallIntegerField(default=0)
+    t2sw = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.match.event_id
+
+    def score(self):
+        return [self.t1sw, self.t2sw]
+
+    def qscore(self):
+        return [self.t1s1, self.t1s2, self.t1s3, self.t2s1, self.t2s2, self.t2s3, self.t1s4, self.t1s5, self.t2s4, self.t2s5]

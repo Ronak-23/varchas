@@ -135,6 +135,7 @@
   animation-fill-mode:forwards;">
                         <h3 style="color: #c0c0c0">Team Members</h3>
                     </div>
+                    {% if userprofile.user_type == None %}
                     {% for member in profile_team.member.all %}
                         <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
   animation-name: fadeInOut;
@@ -143,6 +144,54 @@
                             <h3 class="section_subtitle2" style="color: #c0c0c0">{{ member.user.first_name }} {{ member.user.last_name }}</h3>
                         </div>
                     {% endfor %}
+                    {% else %}
+                    <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">
+                            <h3 class="section_subtitle2" style="color: #c0c0c0">{{ user.first_name }} {{ user.last_name }}</h3>
+                        </div>
+                        {% if userprofile.team_member2 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member2}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member3 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member3}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member4 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member4}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member5 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member5}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member6 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member6}}</h3>
+                        </div>
+                        {% endif %}
+                    {% endif %}
                     <div class="section_subtitle" style="adding-top: 2vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;

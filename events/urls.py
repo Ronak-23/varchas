@@ -1,4 +1,4 @@
-from .views import CreateMatch, CricketViewSet, FootballViewSet, VolleyballViewSet, ChessViewSet, SquashViewSet, TT, badminton, cricket, squash, football, volleyball, chess, athletics, informals, tennis, basketball
+from .views import CreateMatch, CricketViewSet, FootballViewSet, VolleyballViewSet, ChessViewSet, SquashViewSet, TT, badminton, cricket, squash, football, volleyball, chess, athletics, informals, tennis, basketball, valorant, bgmi
 from django.urls import path, include
 from rest_framework import routers
 
@@ -24,5 +24,8 @@ urlpatterns = [
     path('tennis', tennis, name='tennis'),
     path('athletics', athletics, name='athletics'),
     path('informals', informals, name='informals'),
-    path('basketball', basketball, name='basketball')
+    path('basketball', basketball, name='basketball'),
+    path('valorant', valorant, name='valorant'),
+    path('bgmi', bgmi, name='bgmi'),
+
 ]

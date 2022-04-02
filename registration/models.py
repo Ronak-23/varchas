@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import UserProfile
+from accounts.models import EsportsUserProfile, UserProfile
 
 
 class TeamRegistration(models.Model):
@@ -19,6 +19,24 @@ class TeamRegistration(models.Model):
     sport = models.CharField(max_length=2, choices=SPORT_CHOICES)
     college = models.CharField(max_length=128)
     captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True)
+    score = models.IntegerField(default=0)
+
+    def __str__(self):
+        if(self.teamId==None):
+            return "None"
+        return self.teamId
+
+
+class EsportsTeamRegistration(models.Model):
+    ESPORT_CHOICES = (
+        ('1', 'Valorant'),
+        ('2', 'BGMI'),
+        ('3', 'Chess')
+    )
+    teamId = models.CharField(max_length=15, unique=True, blank=True, null=True)
+    sport = models.CharField(max_length=2, choices=ESPORT_CHOICES)
+    college = models.CharField(max_length=128)
+    captian = models.ForeignKey(EsportsUserProfile, on_delete=models.CASCADE, blank=True, null=True)
     score = models.IntegerField(default=0)
 
     def __str__(self):

@@ -334,10 +334,13 @@
             {% elif userprofile.teamId != None %}
               <a href="{% url 'accounts:myTeam' %}"> <button>Team Details</button></a>
               <a href="{% url 'main:payment' %}"><button>Payment</button></a>
+              {% if userprofile.user_type == None %}
               <a href="{% url 'accounts:leaveTeam' %}"><button>Leave Team</button></a>
+              {% endif %}
             {% endif %}
             {% else %}
               <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>
+              <a href="{% url 'accounts:EsportsRegister' %}" ><button>Register for Esports</button></a>
               <a href="#popup1"><button >Instructions</button></a>
             {% endif %}
       </div>
@@ -438,6 +441,8 @@
       <a href="{% url 'events:TT' %}"><div class="card">TABLE TENNIS<img src="{% static 'images/home/tt.png' %}" alt="" /></div></a>
       <a href="{% url 'events:tennis' %}"> <div class="card">TENNIS<img src="{% static 'images/home/tennis.png' %}" alt="" /></div></a>
       <a href="{% url 'events:volleyball' %}"> <div class="card">VOLLEYBALL<img src="{% static 'images/home/vb.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:valorant' %}"> <div class="card">VALORANT<img src="{% static 'images/home/valo.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:bgmi' %}"> <div class="card">BGMI<img src="{% static 'images/home/bgmi.png' %}" alt="" /></div></a>
       <div class="card">INFORMALS<img src="{% static 'images/home/informals.png' %}" alt="" /></div>
     </div>
     <div class="reg">

@@ -82,20 +82,23 @@
                                         <a href="{% url 'accounts:myTeam' %}">
                                             <li class="topbar-styles">Details</li>
                                         </a>
+                                        {% if userprofile.user_type == None %}
                                         <a href="{% url 'accounts:leaveTeam' %}">
                                             <li class="topbar-styles">Leave Team</li>
                                         </a>
                                         <a href="{% url 'registration:remove_player' %}">
                                             <li class="topbar-styles">Remove player</li>
                                         </a>
+                                        {% endif %}
                                     </ul>
                                 </li>
                                 <li class="topbar-styles"><a href="{% url 'main:payment' %}">Payment</a></li>
     
                             {% else %}
     
-    
+                            
                                 <li class="topbar-styles"><a>Team</a>
+                                    {% if userprofile.user_type == None %}
                                     <ul>
                                         <a href="{% url 'accounts:joinTeam' %}">
                                             <li class="topbar-styles">Join Team</li>
@@ -103,16 +106,19 @@
                                         <a href="{% url 'registration:team' %}">
                                             <li class="topbar-styles">Create Team</li>
                                         </a>
-                                    </ul>
+                                    </ul> {% endif %}
+    
                                 </li>
-    
-    
+                           
     
     
                             {% endif %}
                         {% else %}
                             <li class="topbar-styles">
                                 <a href="{% url 'accounts:register' %}">Register</a>
+                            </li>
+                            <li class="topbar-styles">
+                                <a href="{% url 'accounts:EsportsRegister' %}">Esports Registrations</a>
                             </li>
     
                         {% endif %}
@@ -187,9 +193,10 @@
                                         <li class="active">{% else %}
                                         <li>{% endif %}
                                 <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+                                {% if userprofile.user_type == None %}
                                 <li><a href="{% url 'accounts:leaveTeam' %}"
                                     >Leave
-                                 Team</a></li>
+                                 Team</a></li>{% endif %}
                                  <li class="topbar-styles"><a href="{% url 'main:payment' %}">Payment</a></li>
                                 {% else %}
                                     <li><a href="{% url 'accounts:joinTeam' %}">Join
@@ -203,9 +210,10 @@
                                     <li>{% endif %}
                             <a href="{% url 'accounts:profile' %}">Profile</a></li>
                                 {% if page == "team" %}
+                                {% if userprofile.user_type == None %}
                                     <li><a href="{% url 'accounts:leaveTeam' %}"
                                            >Leave
-                                        Team</a></li>{% endif %}
+                                        Team</a></li>{% endif %}{% endif %}
                                 <li><a href="{% url 'logout' %}">Logout</a></li>
                             {% else %}
                                 <li><a href="{% url 'login' %}">Login</a></li>
