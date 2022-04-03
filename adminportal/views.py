@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .forms import EmailForm
-from registration.models import TeamRegistration
+from registration.models import TeamRegistration, EsportsTeamRegistration
 import xlwt
 from django.http import HttpResponse
 from django.core.mail import send_mail
-from accounts.models import UserProfile
+from accounts.models import UserProfile, EsportsUserProfile
 from django.views.generic import CreateView
 
 
@@ -44,6 +44,30 @@ def dashboardTeams(request, sport=0):
         members[team.teamId]=(len(member))
     return render(request, 'adminportal/dashboardTeams.html', {'teams': teams, 'users': users, 'members': members, 'sports': sports, 'sport_select': sport})
 
+
+@login_required(login_url='login')
+def dashboardEsportsTeams(request, sport=0):
+    if not request.user.is_superuser:
+        return render(request, "404")
+    if request.method == 'POST' :
+        sport= request.POST.get('sport')
+    if sport == 0 or sport=='0':
+        teams = EsportsTeamRegistration.objects.all().order_by('-captian__user__date_joined')
+    elif sport == '4':
+        teams = EsportsTeamRegistration.objects.all().exclude(college__iexact='IITJ').exclude(college__iexact='IIT Jodhpur').order_by('-captian__user__date_joined')
+    else:
+        teams = EsportsTeamRegistration.objects.filter(sport=sport).order_by('-captian__user__date_joined')
+    users = EsportsUserProfile.objects.all()
+    sports=['All', 'Valorant', 'BGMI', 'Chess','Exclude IITJ']
+    members={}
+    for team in teams:
+        member = [team.captian.team_member2, team.captian.team_member3, team.captian.team_member4, team.captian.team_member5, team.captian.team_member6]
+        lenmember = 0
+        for i in member:
+            if(i!=None):
+                lenmember+=1
+        members[team.teamId]=lenmember
+    return render(request, 'adminportal/dashboardEsportsTeams.html', {'teams': teams, 'users': users, 'members': members, 'sports': sports, 'sport_select': sport})
 
 @login_required(login_url='login')
 def dashboardUsers(request):
