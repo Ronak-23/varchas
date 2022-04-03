@@ -94,18 +94,19 @@ def downloadExcel(request):
     teams = TeamRegistration.objects.all().order_by('-captian__user__date_joined')
     users = UserProfile.objects.all()
     for team in teams:
-        members = []
-        for user in users:
-            if user.teamId== team:
-                members.append(user.user.first_name)
-        row_num = row_num + 1
-        ws.write(row_num, 0, team.teamId, font_style)
-        ws.write(row_num, 1, team.get_sport_display(), font_style)
-        ws.write(row_num, 2, team.captian.user.first_name, font_style)
-        ws.write(row_num, 3, team.captian.phone, font_style)
-        ws.write(row_num, 4, team.college, font_style)
-        ws.write(row_num, 5, ", ".join(members), font_style)
-        ws.write(row_num, 6, str(team.captian.user.date_joined)[:11])
+        if team.captian!=None:
+            members = []
+            for user in users:
+                if user.teamId== team:
+                    members.append(user.user.first_name)
+            row_num = row_num + 1
+            ws.write(row_num, 0, team.teamId, font_style)
+            ws.write(row_num, 1, team.get_sport_display(), font_style)
+            ws.write(row_num, 2, team.captian.user.first_name, font_style)
+            ws.write(row_num, 3, team.captian.phone, font_style)
+            ws.write(row_num, 4, team.college, font_style)
+            ws.write(row_num, 5, ", ".join(members), font_style)
+            ws.write(row_num, 6, str(team.captian.user.date_joined)[:11])
 
     ws = wb.add_sheet("Users")
     row_num = 0
