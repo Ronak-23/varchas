@@ -161,7 +161,7 @@ class EsportsRegisterFormValorant(UserCreationForm):
     Member_6_Name = forms.CharField(
         widget=forms.TextInput(
             attrs={'class': 'mdb-autocomplete', 'maxlength': '128', 'placeholder': ' '}),
-        required=True)
+        required=False)
     Member_6_ingame_id = forms.CharField( widget=forms.TextInput(
             attrs={'class': 'mdb-autocomplete', 'maxlength': '128', 'placeholder': ' '}),
         required=False)
