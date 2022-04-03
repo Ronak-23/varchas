@@ -66,7 +66,7 @@ def dashboardEsportsTeams(request, sport=0):
         for i in member:
             if(i!=None):
                 lenmember+=1
-        members[team.teamId]=lenmember
+        members[team.teamId]=lenmember + 1
     return render(request, 'adminportal/dashboardEsportsTeams.html', {'teams': teams, 'users': users, 'members': members, 'sports': sports, 'sport_select': sport})
 
 @login_required(login_url='login')
