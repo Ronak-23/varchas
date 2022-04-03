@@ -93,10 +93,10 @@
                         </span>  
                       </div>
                     </div>
-                    {% elif field.field.required %}  
+                    {% elif field.field.required or field.label == "Member 6 name"  %}  
                     <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
                         {{ field.label }}{% if field.field.required %}*{% endif %} :
-                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="{% if field.field.required %}{{ field.label }}*{% endif %}"
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="{{ field.label }}{% if field.field.required %}*{% endif %}"
                         />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
