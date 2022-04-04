@@ -1,4 +1,4 @@
-from .views import RegisterView, DisplayProfile, joinTeam, DisplayTeam, leaveTeam, UserViewSet, GroupViewSet, EsportsRegisterViewValorant, EsportsRegisterViewBGMI, EsportsRegisterViewChess, EsportsRegisterView
+from .views import RegisterView, DisplayProfile, joinTeam, DisplayTeam, leaveTeam, UserViewSet, GroupViewSet, EsportsRegisterViewValorant, EsportsRegisterViewBGMI, EsportsRegisterViewChess, EsportsRegisterView, getAthleticEvents
 from django.urls import path, include
 from rest_framework import routers
 from django.conf.urls import url
@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^myTeam$', DisplayTeam, name='myTeam'),
     url(r'joinTeam$', joinTeam, name='joinTeam'),
     url(r'^leaveTeam$', leaveTeam, name='leaveTeam'),
-
+    path('athletics/', getAthleticEvents, name='athleticEvents'),
 ]
