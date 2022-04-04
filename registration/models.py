@@ -20,6 +20,7 @@ class TeamRegistration(models.Model):
     college = models.CharField(max_length=128)
     captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True)
     score = models.IntegerField(default=0)
+    subevents = models.CharField(max_length=1024, blank=True, null=True)
 
     def __str__(self):
         if(self.teamId==None):
@@ -43,3 +44,4 @@ class EsportsTeamRegistration(models.Model):
         if(self.teamId==None):
             return "None"
         return self.teamId
+        
