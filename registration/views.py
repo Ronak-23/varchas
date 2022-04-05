@@ -8,7 +8,9 @@ from .models import TeamRegistration
 from django.core.mail import send_mail
 from django.views.generic import FormView
 from django.contrib.auth.models import User
-
+from rest_framework import viewsets
+from .serializers import TeamsSerializer
+from rest_framework import permissions
 
 class TeamFormationView(CreateView):
     form_class = TeamRegistrationForm
@@ -90,3 +92,9 @@ class removePlayerView(FormView):
         userList.remove(team.captian)
         context['players'] = userList
         return context
+
+
+class TeamViewSet(viewsets.ModelViewSet):
+    queryset = TeamRegistration.objects.all()
+    serializer_class = TeamsSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
