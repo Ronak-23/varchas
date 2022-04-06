@@ -38,7 +38,7 @@ class Event(models.Model):
     venue = models.CharField(max_length=3, choices=VENUE_CHOICES)
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
-    event_id = models.CharField(max_length=4, default="NAN")
+    event_id = models.CharField(max_length=20, default="NAN")
     organisers = models.ManyToManyField(AdminProfile, blank=True)
     max_team_size = models.PositiveSmallIntegerField(default=1, help_text='Leave 1 for single participant event')
     about = RichTextUploadingField()
