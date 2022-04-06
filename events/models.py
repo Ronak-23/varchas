@@ -23,12 +23,11 @@ class Event(models.Model):
     ('4', 'Chess'),
     ('5', 'Cricket'),
     ('6', 'Football'),
-    ('7', 'Table Tenis'),
-    ('8', 'Tenis'),
+    ('7', 'Table Tenins'),
+    ('8', 'Tennis'),
     ('9', 'Volleyball'),
-    ('10', 'Marathon'),
+    ('10', 'Badminton-Mixed doubles'),
     ('11', 'SOCH'),
-    ('12', 'Badminton-Mixed doubles'),
     )
     event = models.CharField(max_length=2, choices=EVENT_CHOICES, default=1)
     venue = models.CharField(max_length=3, choices=VENUE_CHOICES)

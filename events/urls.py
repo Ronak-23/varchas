@@ -1,4 +1,4 @@
-from .views import CreateMatch, CricketViewSet, FootballViewSet, VolleyballViewSet, ChessViewSet, SquashViewSet, TT, badminton, cricket, squash, football, volleyball, chess, athletics, informals, tennis, basketball, valorant, bgmi
+from .views import BadmintonViewSet, CreateMatch, CricketViewSet, FootballViewSet, TTViewSet, TennisViewSet, VolleyballViewSet, ChessViewSet, SquashViewSet, BasketballViewSet, MatchViewSet, TT, badminton, cricket, squash, football, volleyball, chess, athletics, informals, tennis, basketball, valorant, bgmi, fixtures
 from django.urls import path, include
 from rest_framework import routers
 
@@ -10,6 +10,11 @@ router.register(r'footballApi', FootballViewSet)
 router.register(r'volleyballApi', VolleyballViewSet)
 router.register(r'chessApi', ChessViewSet)
 router.register(r'squashApi', SquashViewSet)
+router.register(r'TTApi', TTViewSet)
+router.register(r'badmintonApi', BadmintonViewSet)
+router.register(r'TennisApi', TennisViewSet)
+router.register(r'basketballApi', BasketballViewSet)
+router.register(r'MatchApi', MatchViewSet)
 
 urlpatterns = [
     path('add', CreateMatch.as_view(), name='add_match'),
@@ -27,5 +32,6 @@ urlpatterns = [
     path('basketball', basketball, name='basketball'),
     path('valorant', valorant, name='valorant'),
     path('bgmi', bgmi, name='bgmi'),
+    path('fixtures/(<str:sport>)/', fixtures, name='fixtures'),
 
 ]
