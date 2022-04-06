@@ -8,7 +8,7 @@ class MatchSerializer(serializers.HyperlinkedModelSerializer):
     team2 = serializers.SlugRelatedField(queryset=TeamRegistration.objects.all(), slug_field="teamId")
     class Meta:
         model = Match
-        fields = ['url','event', 'event_id', 'team1', 'team2']
+        fields = ['url','event', 'event_id', 'team1', 'team2', 'venue', 'date', 'time']
 
 
 class CricketSerializer(serializers.HyperlinkedModelSerializer):
