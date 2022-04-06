@@ -10,11 +10,16 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Event(models.Model):
 
     VENUE_CHOICES = (
-    ('1', 'Football Ground'),
+    ('1', 'IITJ Football Ground'),
     ('2', 'Volleyball Ground'),
     ('3', 'Tennis Ground'),
-    ('4', 'Badminton Ground'),
+    ('4', 'Indoor sports Complex'),
     ('5', 'Lecture Hall Complex'),
+    ('6', 'Spartan Cricket Ground'),
+    ('7', 'Pathan Cricket Academy'),
+    ('8', 'VIRU Cricket Academy'),
+    ('9', 'SNMC Cricket Ground'),
+    ('10', 'Ummed Football Stadium'),
     )
     EVENT_CHOICES = (
     ('1', 'Athletics'),
