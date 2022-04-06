@@ -474,15 +474,13 @@ h3 {
           {% for match in fixtures %}
           <h4>
             {{match.match.date}} <br />{{match.match.time}} <br />
-            {#
-            {% if match.match.play_status == '2' %}
+            <!-- {% if match.match.play_status == '2' %}
               <b>SCHEDULED</b>
             {% elif match.match.play_status == '3' %}
               <b>COMPLETED</b>
             {% elif match.match.play_status == '1' %}
               <b>LIVE</b>
-            {% endif %}
-            #}
+            {% endif %} -->
           </h4>
           {% endfor %}
         </div>
@@ -500,7 +498,7 @@ h3 {
             <div class="a">
               {{match.match.team2.college}} <br />
               {#{ match.match.team2.teamId}#}  <br />
-              <b>{{match.score.1}}</b>
+              <b>{#{match.score.1}#}</b>
             </div>
           </div>
           {% endfor %}
