@@ -172,6 +172,7 @@
       </div>
     </div>
     <a href="{% static 'Rules/Cricket.pdf' %}"><div class="btn"><button>RULEBOOK</button></div></a>
+    <a href="{% url 'events:fixtures' 5 %}"><div class="btn"><button value="5" name="sport">Fixtures and leaderboard</button></div></a>
   </div>
 </body>
 {% endblock %}
