@@ -20,7 +20,7 @@ class CreateMatch(FormView):
         game_ch = Event.EVENT_CHOICES[int(data['event']) - 1][1][:2].upper()
         type_ch = Match.MATCH_CHOICES[int(data['match_type']) - 1][1][:2].upper()
         data['event_id'] = game_ch + '-' + type_ch + '-' + data['team1'][:2].upper() + data['team2'][:2].upper()
-        form = MatchForm(data)
+        form = MatchForm(data, sport= self.kwargs["sport"]) 
         if Match.objects.filter(event_id=data['event_id']).exists():
             message = "You are already in team {}".format(data['event_id'])
         else:
@@ -148,8 +148,6 @@ def squash(request):
 
 def TT(request):
     context = {}
-    context['fixtures'] = TT.objects.all()
-    context['leaderboard'] = TeamRegistration.objects.all().filter(sport='7').order_by('-score')
     return render(request, 'events/TT.html', context)
 
 
