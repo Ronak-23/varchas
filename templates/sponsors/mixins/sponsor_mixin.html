@@ -28,7 +28,32 @@
                     </div>
                 </div>
             </div>
-            {% else %}
+            {% elif sponsortype.name != 'Title Sponsor' and sponsortype.name != 'Co-Title Sponsor' %}
+            <div class="col-lg-12 mb-5">
+
+
+                <h3 class="font-bold mb-5" style="color: white;">{{ sponsortype.name }}</h3>
+                <div class="container-fluid">
+                    <div class="row flex-center">
+                        {% for sponsor in sponsortype.sponsor_set.all %}
+                            <div class="col-lg-4 col-md-6 col-sm-12"
+
+                            >
+                                <a href="{% if sponsor.link %}{{ sponsor.link }}{% endif %}"
+
+                                   target="_blank">
+                                    <img src="{{ sponsor.logo.url }}" class="img-fluid "/>
+                                </a>
+                                <div style="text-align: center;  {% if sponsortype.sponsor_set.all.count == 1 %}max-width:500px;
+                                        {% endif %} padding-top: 4vh">
+                                    <h4 class="h3-responsive" style="color: white;">{{ sponsor.name }}</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else  %}
             <div class="col-lg-12 mb-5">
                 <h1 class="font-bold mb-5" style="color: white;">{{ sponsortype.name }}</h1>
                 <div class="container-fluid">
