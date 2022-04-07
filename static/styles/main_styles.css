@@ -466,7 +466,7 @@ section {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: 60px;
+    left: 0px;
 }
 
 .main_nav ul li:not(:last-of-type) {
