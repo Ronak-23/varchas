@@ -178,7 +178,7 @@ def informals(request):
 def basketball(request):
     context = {}
     context['fixtures'] = BasketBall.objects.all()
-    context['leaderboard'] = TeamRegistration.filter(sport='3').objects.all().order_by('-score')
+    context['leaderboard'] = TeamRegistration.objects.all().filter(sport='3').order_by('-score')
     return render(request, 'events/basketball.html', context)
 
 def valorant(request):
