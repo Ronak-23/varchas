@@ -3,7 +3,6 @@
     
     <div class="row text-center" style="">
         {% for sponsortype in sponsortype_list %}
-        {{sponsortype.name}}
         {% if sponsortype.name != 'Title Sponsor' and sponsortype.name != 'Co-Title Sponsor' and sponsortype.name != 'Event Sponsor' and sponsortype.name != 'Equipment Sponsor'  %}
             <div class="col-lg-6 mb-5">
 
