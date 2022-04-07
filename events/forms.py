@@ -22,12 +22,6 @@ class MatchForm(forms.ModelForm):
             'time': TimeInput(),
         }
 
-    def __init__(self, sport = '6' , **kwargs):
-        super(MatchForm, self).__init__(**kwargs)
-        if sport:
-            self.fields['team1'].queryset = TeamRegistration.objects.filter(sport=sport)
-            self.fields['team2'].queryset = TeamRegistration.objects.filter(sport=sport)
-
     def clean_team2(self):
         team2 = self.cleaned_data["team2"]
         team1 = self.cleaned_data["team1"]
