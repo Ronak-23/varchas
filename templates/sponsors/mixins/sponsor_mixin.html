@@ -4,21 +4,21 @@
             <div class="col-12 mb-5">
 
 
-                <h1 class="font-bold mb-5">{{ sponsortype.name }}</h1>
+                <h1 class="font-bold mb-5" style="color: white;">{{ sponsortype.name }}</h1>
                 <div class="container-fluid">
                     <div class="row flex-center">
                         {% for sponsor in sponsortype.sponsor_set.all %}
-                            <div class="col-12"
+                            <div class="col-lg-4 col-md-6 col-sm-12"
 
-                            style="{% if sponsor.sponsor_type.name != "Title Sponsor" %}width:100%{% endif %}">
+                            style="{% if sponsor.sponsor_type.name != 'Title Sponsor' %} width:100% {% endif %}">
                                 <a href="{% if sponsor.link %}{{ sponsor.link }}{% endif %}"
 
                                    target="_blank">
                                     <img src="{{ sponsor.logo.url }}" class="img-fluid "/>
                                 </a>
-                                <div style="text-align: center  {% if sponsortype.sponsor_set.all.count == 1 %}max-width:500px;
+                                <div style="text-align: center;  {% if sponsortype.sponsor_set.all.count == 1 %}max-width:500px;
                                         {% endif %} padding-top: 4vh">
-                                    <h3 class="h3-responsive">{{ sponsor.name }}</h3>
+                                    <h3 class="h3-responsive" style="color: white;">{{ sponsor.name }}</h3>
                                 </div>
                             </div>
                         {% endfor %}
