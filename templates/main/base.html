@@ -61,6 +61,7 @@
                         <a href="{% url 'main:home' %}">Home</a></li>
                         <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
                         <li class="topbar-styles"><a href="{% url 'main:aboutus' %}">About</a></li>
+                        <li class="topbar-styles"><a href="{% url 'sponsor:index' %}">Sponsors</a></li>
                         {% for navbaroption in navbaroptions %}
                             <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false"
@@ -114,9 +115,9 @@
     
                             {% endif %}
                         {% else %}
-                            <li class="topbar-styles">
+                            <!-- <li class="topbar-styles">
                                 <a href="{% url 'accounts:register' %}">Register</a>
-                            </li>
+                            </li> -->
                             <li class="topbar-styles">
                                 <a href="{% url 'accounts:EsportsRegister' %}">Esports Registrations</a>
                             </li>
@@ -174,6 +175,9 @@
                             {% if page == "aboutus" %}
                                 <li class="active">{% else %}
                                 <li>{% endif %}<a href="{% url 'main:aboutus' %}">About</a></li>
+                            {% if page == "sponsors" %}
+                                <li class="active">{% else %}
+                                <li>{% endif %}<a href="{% url 'sponsor:index' %}">Sponsors</a></li>
                             {% for navbaroption in navbaroptions %}
                                 <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                        aria-haspopup="true" aria-expanded="false"
@@ -217,8 +221,8 @@
                                 <li><a href="{% url 'logout' %}">Logout</a></li>
                             {% else %}
                                 <li><a href="{% url 'login' %}">Login</a></li>
-                                <li><a href="{% url 'accounts:register' %}">Register</a>
-                                </li>
+                                <!-- <li><a href="{% url 'accounts:register' %}">Register</a>
+                                </li> -->
                                 <li><a href="{% url 'accounts:EsportsRegister' %}">Esports Registrations</a></li>
                             {% endif %}
                         </ul>
