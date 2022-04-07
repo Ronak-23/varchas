@@ -1,16 +1,42 @@
+
 <div class="container mt-5">
-    <div class="row text-center">
+    
+    <div class="row text-center" style="">
         {% for sponsortype in sponsortype_list %}
-            <div class="col-12 mb-5">
+        {% if sponsortype.name != 'Title Sponsor' or sponsortype.name != 'Co-Title Sponsor' or sponsortype.name != 'Event Sponsor' or sponsortype.name != 'Equipment Sponsor'  %}
+            <div class="col-lg-6 mb-5">
 
 
+                <h3 class="font-bold mb-5" style="color: white;">{{ sponsortype.name }}</h3>
+                <div class="container-fluid">
+                    <div class="row flex-center">
+                        {% for sponsor in sponsortype.sponsor_set.all %}
+                            <div class="col-lg-6 col-md-6 col-sm-12"
+
+                            >
+                                <a href="{% if sponsor.link %}{{ sponsor.link }}{% endif %}"
+
+                                   target="_blank">
+                                    <img src="{{ sponsor.logo.url }}" class="img-fluid "/>
+                                </a>
+                                <div style="text-align: center;  {% if sponsortype.sponsor_set.all.count == 1 %}max-width:500px;
+                                        {% endif %} padding-top: 4vh">
+                                    <h4 class="h3-responsive" style="color: white;">{{ sponsor.name }}</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-lg-12 mb-5">
                 <h1 class="font-bold mb-5" style="color: white;">{{ sponsortype.name }}</h1>
                 <div class="container-fluid">
                     <div class="row flex-center">
                         {% for sponsor in sponsortype.sponsor_set.all %}
-                            <div class="col-lg-4 col-md-6 col-sm-12"
+                            <div class="col-lg-6 col-md-6 col-sm-12"
 
-                            style="{% if sponsor.sponsor_type.name != 'Title Sponsor' %} width:100% {% endif %}">
+                            >
                                 <a href="{% if sponsor.link %}{{ sponsor.link }}{% endif %}"
 
                                    target="_blank">
@@ -25,6 +51,8 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
+        
     </div>
 </div>
