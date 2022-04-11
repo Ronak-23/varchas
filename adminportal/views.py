@@ -176,7 +176,7 @@ def downloadEsportsExcel(request):
     row_num = 0
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
-    columns = ['TeamID', 'Sport', 'Captain', 'Captain no.', 'College', 'Members', 'Created on', 'Members Rank']
+    columns = ['TeamID', 'Sport', 'Captain', 'Captain no.', 'College', 'Members', 'Created on', 'Members Rank', 'Members Ingame Id']
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
@@ -186,26 +186,37 @@ def downloadEsportsExcel(request):
         if team.captian!=None:
             members = []
             membersRank = []
+            membersId = []
             if team.captian.team_member2!=None:
                 members.append(team.captian.team_member2)
                 if team.captian.team_member2_rank!=None:
                     membersRank.append(team.captian.team_member2_rank)
+                if team.captian.team_member2_ingame_id!=None:
+                    membersId.append(team.captian.team_member2_ingame_id)
             if team.captian.team_member3!=None:
                 members.append(team.captian.team_member3)
                 if team.captian.team_member3_rank!=None:
                     membersRank.append(team.captian.team_member3_rank)
+                if team.captian.team_member3_ingame_id!=None:
+                    membersId.append(team.captian.team_member3_ingame_id)
             if team.captian.team_member4!=None:
                 members.append(team.captian.team_member4)
                 if team.captian.team_member4_rank!=None:
                     membersRank.append(team.captian.team_member4_rank)
+                if team.captian.team_member4_ingame_id!=None:
+                    membersId.append(team.captian.team_member4_ingame_id)
             if team.captian.team_member5!=None:
                 members.append(team.captian.team_member5)
                 if team.captian.team_member5_rank!=None:
                     membersRank.append(team.captian.team_member5_rank)
+                if team.captian.team_member5_ingame_id!=None:
+                    membersId.append(team.captian.team_member5_ingame_id)
             if team.captian.team_member6!=None:
                 members.append(team.captian.team_member6)
                 if team.captian.team_member6_rank!=None:
                     membersRank.append(team.captian.team_member6_rank)
+                if team.captian.team_member6_ingame_id!=None:
+                    membersId.append(team.captian.team_member6_ingame_id)
             row_num = row_num + 1
             ws.write(row_num, 0, team.teamId, font_style)
             ws.write(row_num, 1, team.get_sport_display(), font_style)
@@ -215,6 +226,7 @@ def downloadEsportsExcel(request):
             ws.write(row_num, 5, ", ".join(members), font_style)
             ws.write(row_num, 6, str(team.captian.user.date_joined)[:11])
             ws.write(row_num, 7, ", ".join(membersRank), font_style)
+            ws.write(row_num, 8, ", ".join(membersId), font_style)
 
 
     ws = wb.add_sheet("Users")
