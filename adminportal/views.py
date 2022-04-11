@@ -1,5 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+# from requests import request
+
+# from events.models import Cricket, Match
 from .forms import EmailForm
 from registration.models import TeamRegistration, EsportsTeamRegistration
 import xlwt
@@ -61,6 +64,20 @@ def updateScore(request, sport=0):
         team.score = request.POST.get('score')
         team.save()
     return render(request, 'adminportal/updateScore.html', {'teams': teams, 'sports' : sports})
+
+
+# def updateCricketScore():
+#     match = Match.objects.all().filter(event='5')
+#     if request.method == 'POST':
+#         matchCric = Match.objects.get(event_id = request.POST.get('matchId'))
+#         matchCric.winner = request.POST.get('winner')
+#         cric = Cricket.objects.all.filter(match=matchCric)
+#         cric.run1 = request.POST.get('run1')
+#         cric.run2 = request.POST.get('run2')
+#         cric.wicket1 = request.POST.get('wicket1')
+#         cric.wicket2 = request.POST.get('wicket2')
+#         cric.save()
+#     return render(request, 'adminportal/CricketScore.html', {'matchs': match})
 
 
 @login_required(login_url='login')
@@ -135,6 +152,80 @@ def downloadExcel(request):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
     users = UserProfile.objects.all().order_by('-user__date_joined')
+    for user in users:
+        row_num = row_num + 1
+        ws.write(row_num, 0, user.user.email, font_style)
+        ws.write(row_num, 1, user.user.first_name+" "+user.user.last_name, font_style)
+        ws.write(row_num, 2, user.phone, font_style)
+        ws.write(row_num, 3, user.gender, font_style)
+        ws.write(row_num, 4, user.college, font_style)
+        ws.write(row_num, 5, user.teamId.teamId if user.teamId!=None else "" , font_style)
+        ws.write(row_num, 7, str(user.user.date_joined)[:11])
+
+    wb.save(response)
+    return response
+
+
+@login_required(login_url='login')
+def downloadEsportsExcel(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Varchas.xls"'
+    wb = xlwt.Workbook(encoding='utf-8')
+
+    ws = wb.add_sheet("Teams")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['TeamID', 'Sport', 'Captain', 'Captain no.', 'College', 'Members', 'Created on', 'Members Rank']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
+    teams = EsportsTeamRegistration.objects.all().order_by('-captian__user__date_joined')
+    users = EsportsUserProfile.objects.all()
+    for team in teams:
+        if team.captian!=None:
+            members = []
+            membersRank = []
+            if team.captian.team_member2!=None:
+                members.append(team.captian.team_member2)
+                if team.captian.team_member2_rank!=None:
+                    membersRank.append(team.captian.team_member2_rank)
+            if team.captian.team_member3!=None:
+                members.append(team.captian.team_member3)
+                if team.captian.team_member3_rank!=None:
+                    membersRank.append(team.captian.team_member3_rank)
+            if team.captian.team_member4!=None:
+                members.append(team.captian.team_member4)
+                if team.captian.team_member4_rank!=None:
+                    membersRank.append(team.captian.team_member4_rank)
+            if team.captian.team_member5!=None:
+                members.append(team.captian.team_member5)
+                if team.captian.team_member5_rank!=None:
+                    membersRank.append(team.captian.team_member5_rank)
+            if team.captian.team_member6!=None:
+                members.append(team.captian.team_member6)
+                if team.captian.team_member6_rank!=None:
+                    membersRank.append(team.captian.team_member6_rank)
+            row_num = row_num + 1
+            ws.write(row_num, 0, team.teamId, font_style)
+            ws.write(row_num, 1, team.get_sport_display(), font_style)
+            ws.write(row_num, 2, team.captian.user.first_name, font_style)
+            ws.write(row_num, 3, team.captian.phone, font_style)
+            ws.write(row_num, 4, team.college, font_style)
+            ws.write(row_num, 5, ", ".join(members), font_style)
+            ws.write(row_num, 6, str(team.captian.user.date_joined)[:11])
+            ws.write(row_num, 7, ", ".join(membersRank), font_style)
+
+
+    ws = wb.add_sheet("Users")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['Email', 'Name', 'Phone Number', 'Gender', 'College', 'teamId', 'Date Joined']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
+    users = EsportsUserProfile.objects.all().order_by('-user__date_joined')
     for user in users:
         row_num = row_num + 1
         ws.write(row_num, 0, user.user.email, font_style)
