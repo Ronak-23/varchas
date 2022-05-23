@@ -4,7 +4,6 @@ flake8
 django-allauth
 django-ckeditor
 django-widget_tweaks
-sendgrid
 xlwt
 django-rest_framework
-django-environ
+python-decouple

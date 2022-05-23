@@ -3,6 +3,18 @@
 {% block body %}
     {% csrf_token %}
     <style>
+        td, th {
+            text-align: center;
+            padding: 2%;
+            border-bottom: 1px solid #ddd;
+            font-size: x-large;
+        }
+
+        input[type="submit"]:hover {
+            text-decoration: none;
+            color: #ff7315;
+        }
+
         @media screen and (min-width: 300px) {
             .pad {
                 padding: 0 0 30vh 0;
@@ -111,7 +123,20 @@
                             <i class="fa fa-futbol-o"></i>
                             Sport
                             : {{ profile_team.get_sport_display }}</h2>
-                    </div>
+                    </div><br><br>
+                    {% if profile_team.get_sport_display == "Athletics" %}
+                        <div class="section_subtitle" style="padding-top: 0vh;padding-left: 2vh;opacity: 0;
+    animation-name: fadeInOut;
+    animation-duration: 1s;
+    animation-fill-mode:forwards;">
+                            <h2 class="section_subtitle1" style="color: #c0c0c0;">
+                                Registered Subevents :<br><br>
+                            </h2>
+                            {% for event in subevents %}
+                                <h3 class="section_subtitle2" style="color: #c0c0c0">{{ event }}</h3><br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                     <div class="section_subtitle" style="padding-top: 3vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
@@ -135,6 +160,7 @@
   animation-fill-mode:forwards;">
                         <h3 style="color: #c0c0c0">Team Members</h3>
                     </div>
+                    {% if userprofile.user_type == None %}
                     {% for member in profile_team.member.all %}
                         <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
   animation-name: fadeInOut;
@@ -143,6 +169,54 @@
                             <h3 class="section_subtitle2" style="color: #c0c0c0">{{ member.user.first_name }} {{ member.user.last_name }}</h3>
                         </div>
                     {% endfor %}
+                    {% else %}
+                    <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">
+                            <h3 class="section_subtitle2" style="color: #c0c0c0">{{ user.first_name }} {{ user.last_name }}</h3>
+                        </div>
+                        {% if userprofile.team_member2 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member2}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member3 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member3}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member4 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member4}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member5 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member5}}</h3>
+                        </div>
+                        {% endif %}
+                        {% if userprofile.team_member6 != None %}
+                        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+                        animation-name: fadeInOut;
+                        animation-duration: 1s;
+                        animation-fill-mode:forwards;">
+                                    <h3 class="section_subtitle2" style="color: #c0c0c0">{{ userprofile.team_member6}}</h3>
+                        </div>
+                        {% endif %}
+                    {% endif %}
                     <div class="section_subtitle" style="adding-top: 2vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
@@ -152,6 +226,69 @@
                 </div>
                 <br>
                 <div class="button"><a href="{% url 'main:home' %}">Home</a></div>
+                {% if profile_team.get_sport_display == "Athletics" %}
+                    <br/><br/>
+                    <form action="{% url 'accounts:athleticEvents'%}" method="post">
+                        {% csrf_token %}
+                        <center>
+                            <table style="width: 50%; border-collapse: collapse;">
+                            <tr>
+                                <th>Sub Events</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="100m" value="100m" {% if '100m' in subevents %} checked {% endif %}>
+                                    <label for="100m">100m</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="200m" value="200m" {% if '200m' in subevents %} checked {% endif %}>
+                                    <label for="200m">200m</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="400m" value="400m" {% if '400m' in subevents %} checked {% endif %}>
+                                    <label for="400m">400m</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="800m" value="800m" {% if '800m' in subevents %} checked {% endif %}>
+                                    <label for="800m">800m</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="1500m" value="1500m" {% if '1500m' in subevents %} checked {% endif %}>
+                                    <label for="1500m">1500m</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="5000m" value="5000m" {% if '5000m' in subevents %} checked {% endif %}>
+                                    <label for="5000m">5000m (Only for boys)</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="4*100m" value="4*100m" {% if '4*100m' in subevents %} checked {% endif %}>
+                                    <label for="4*100m">4*100m Relay</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="4*400m" value="4*400m" {% if '4*400m' in subevents %} checked {% endif %}>
+                                    <label for="4*400m">4*400m Relay</label>
+                                </td>
+                            </tr>
+                        </table>
+                        <br><br>
+                        <input type="submit" value="Save/Update" class="button">
+                        </center>
+                    </form>
+                {% endif %}
             </div>
         </div>
         <!-- Footer -->
@@ -173,8 +310,9 @@
                                 <div class="footer_title">talk to us</div>
                                 <div class="footer_list">
                                     <ul>
-                                        <li>+91 87664 43560 - ASHISH CHAVHAN</li>
-                                        <li>+91 83404 60791 - MANISH</li>
+                                        <li>Akshansh Verma - 8287527315</li>
+                                        <li>Utkarsh Pandey - 8957662202</li>
+                                        <li>Buruka Nikhitha - 9390194442</li>
                                     </ul>
                                 </div>
                             </div>

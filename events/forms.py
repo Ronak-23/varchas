@@ -1,4 +1,6 @@
 from django import forms
+
+from registration.models import TeamRegistration
 from .models import Match
 
 
@@ -14,7 +16,7 @@ class TimeInput(forms.TimeInput):
 class MatchForm(forms.ModelForm):
     class Meta:
         model = Match
-        fields = ["event", "match_type", "team1", "team2", "venue", "date", "time", "max_team_size", "organisers", "about"]
+        fields = ["event", "match_type", "team1", "team2", "venue", "date", "time", "max_team_size"]
         widgets = {
             'date': DateInput(),
             'time': TimeInput(),

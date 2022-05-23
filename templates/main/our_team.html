@@ -3,79 +3,39 @@
 {% block body %}
   {% csrf_token %}
   <!-- Profile -->
-  <div class="" style=" ">
+  <div class="" style="background:linear-gradient(180deg, #0c0131 0%, #030212 100%);">
     <div >
   {% include 'main/mixins/our_team_main_mixin.html' with our_team=our_team %}
   </div>
-  <!-- Footer -->
-
-  <footer class="footer">
-    <div class="footer_content">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class=" text-center" style="font-size: 7vh;color: white">Contact Us</div>
-          </div>
-        </div>
-        <div class="row footer_row">
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-phone fa-4x" style="color: white"></i></div>
-              </div>
-              <div class="footer_title">talk to us</div>
-              <div class="footer_list">
-                <ul>
-                  <li>+91 87664 43560 - ASHISH CHAVHAN</li>
-                  <li>+91 83404 60791 - MANISH</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-envelope fa-4x" style="margin-left: -1vh;margin-top:-1vh;color: white"></i></div>
-              </div>
-              <div class="footer_title">e-mail</div>
-              <div class="footer_list">
-                <ul>
-                  <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a></li>
-                  <li><a href="mailto:pr_varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-map-marker fa-4x" style="color: white;margin-top: -1vh"></i></div>
-              </div>
-              <div class="footer_title">location</div>
-              <div class="footer_list">
-                <ul>
-                  <li>Indian Institute of Technology</li>
-                  <li>JODHPUR</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer_bar d-flex flex-row align-items-center justify-content-center">
-      <div class="copyright">
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>
-          document.write(new Date().getFullYear());
-        </script>
-        All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://students.iitj.ac.in/" target="_blank">Varchas Web D Team</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      </div>
-    </div>
-  </footer>
 </div>
-
+<div class="footer">
+  <h1>CONTACT US</h1>
+  <div class="icon">
+    <div class="ic">
+      <img src="{% static 'images/ic1.png' %}" alt="" />
+      <h3>Akshansh Verma</h3>
+       <a href="tel:+918287527315"><h3>8287527315</h3></a>
+      <h3>Utkarsh Pandey</h3>
+      <a href="tel:+918957662202"><h3>8957662202</h3></a>
+      <h3>Buruka Nikhitha</h3>
+          <a href="tel:+919390194442"><h3>9390194442</h3></a>
+    </div>
+    <div class="ic">
+      <img src="{% static 'images/ic2.png' %}" alt="" />
+      <a href="mailto:pr_varchas@iitj.ac.in"><h3>pr_varchas@iitj.ac.in</h3></a>
+    </div>
+    <div class="ic">
+      <a href="https://www.google.com/maps/place/Indian+Institute+of+Technology+Jodhpur/@26.4709977,73.1112805,17z/data=!3m1!4b1!4m5!3m4!1s0x39418c5ea672337b:0xb6c9a5a9b08db22e!8m2!3d26.4709977!4d73.1134692"><img src="{% static 'images/ic3.png' %}" alt="" /></a>
+      <h3>Indian Institute of Technology Jodhpur</h3>
+    </div>
+  </div>
+  <br />
+  <h3>
+    Copyright &#169;2022 All rights reserved | This site is made with
+    &#x1F49C; by Varchas Web D Team
+  </h3>
+</div>
+</div>
 
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>

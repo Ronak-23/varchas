@@ -2,12 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% block header %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Varchas is the annual sports festival of IIT Jodhpur, varchas  has grown to become the largest and one of the most awaited sports festival of north west India.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios-filled/344/sports-mode.png">
     <title>Varchas</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles/animate.css' %}">
 
         <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet"
               type="text/css">
@@ -17,6 +19,8 @@
          <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/animate.css' %}">
     <link
       href="http://fonts.cdnfonts.com/css/post-no-bills-jaffna"
       rel="stylesheet"
@@ -27,13 +31,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-    
+    {% endblock %}
   </head>
   <body onscroll="topbar()" onload="topbar2()">
 
     <div class="super_container">
-    
-    
+
+
         <!-- Header -->
     
     
@@ -43,7 +47,7 @@
             <div class="header_wrap d-flex flex-row align-items-center justify-content-center" style="padding-top: 0">
     
                 <!-- Logo -->
-                <div class="logo"><a href="{% url 'main:home' %}"><img src="{% static 'images/logo.png' %}"
+                <div class="logo"><a href="{% url 'main:home' %}"><img src="{% static 'images/logo_2.png' %}"
                                                                        alt=""></a></div>
     
                 <!-- Main Nav -->
@@ -56,6 +60,8 @@
                         {% endif %}
                         <a href="{% url 'main:home' %}">Home</a></li>
                         <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
+                        <li class="topbar-styles"><a href="{% url 'main:aboutus' %}">About</a></li>
+                        <li class="topbar-styles"><a href="{% url 'sponsor:index' %}">Sponsors</a></li>
                         {% for navbaroption in navbaroptions %}
                             <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false"
@@ -77,20 +83,23 @@
                                         <a href="{% url 'accounts:myTeam' %}">
                                             <li class="topbar-styles">Details</li>
                                         </a>
+                                        {% if userprofile.user_type == None %}
                                         <a href="{% url 'accounts:leaveTeam' %}">
                                             <li class="topbar-styles">Leave Team</li>
                                         </a>
                                         <a href="{% url 'registration:remove_player' %}">
                                             <li class="topbar-styles">Remove player</li>
                                         </a>
+                                        {% endif %}
                                     </ul>
                                 </li>
-    
+                                <li class="topbar-styles"><a href="{% url 'main:payment' %}">Payment</a></li>
     
                             {% else %}
     
-    
+                            
                                 <li class="topbar-styles"><a>Team</a>
+                                    {% if userprofile.user_type == None %}
                                     <ul>
                                         <a href="{% url 'accounts:joinTeam' %}">
                                             <li class="topbar-styles">Join Team</li>
@@ -98,16 +107,19 @@
                                         <a href="{% url 'registration:team' %}">
                                             <li class="topbar-styles">Create Team</li>
                                         </a>
-                                    </ul>
+                                    </ul> {% endif %}
+    
                                 </li>
-    
-    
+                           
     
     
                             {% endif %}
                         {% else %}
-                            <li class="topbar-styles">
+                            <!-- <li class="topbar-styles">
                                 <a href="{% url 'accounts:register' %}">Register</a>
+                            </li> -->
+                            <li class="topbar-styles">
+                                <a href="{% url 'accounts:EsportsRegister' %}">Esports Registrations</a>
                             </li>
     
                         {% endif %}
@@ -149,7 +161,7 @@
             <div class="menu_door"></div>
     
             <div class="menu_content d-flex flex-column align-items-center justify-content-center">
-                <div class="menu_close">close</div>
+                <div class="menu_close" style="font-size: xx-large;">X</div>
                 <div class="menu_nav_container">
                     <nav class="menu_nav text-center">
                         <ul>
@@ -160,6 +172,12 @@
                             {% if page == "ourTeam" %}
                                 <li class="active">{% else %}
                                 <li>{% endif %}<a href="{% url 'main:OurTeam' %}">Core Team</a></li>
+                            {% if page == "aboutus" %}
+                                <li class="active">{% else %}
+                                <li>{% endif %}<a href="{% url 'main:aboutus' %}">About</a></li>
+                            {% if page == "sponsors" %}
+                                <li class="active">{% else %}
+                                <li>{% endif %}<a href="{% url 'sponsor:index' %}">Sponsors</a></li>
                             {% for navbaroption in navbaroptions %}
                                 <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                        aria-haspopup="true" aria-expanded="false"
@@ -179,6 +197,11 @@
                                         <li class="active">{% else %}
                                         <li>{% endif %}
                                 <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+                                {% if userprofile.user_type == None %}
+                                <li><a href="{% url 'accounts:leaveTeam' %}"
+                                    >Leave
+                                 Team</a></li>{% endif %}
+                                 <li class="topbar-styles"><a href="{% url 'main:payment' %}">Payment</a></li>
                                 {% else %}
                                     <li><a href="{% url 'accounts:joinTeam' %}">Join
                                         Team</a></li>
@@ -191,14 +214,16 @@
                                     <li>{% endif %}
                             <a href="{% url 'accounts:profile' %}">Profile</a></li>
                                 {% if page == "team" %}
+                                {% if userprofile.user_type == None %}
                                     <li><a href="{% url 'accounts:leaveTeam' %}"
                                            >Leave
-                                        Team</a></li>{% endif %}
+                                        Team</a></li>{% endif %}{% endif %}
                                 <li><a href="{% url 'logout' %}">Logout</a></li>
                             {% else %}
                                 <li><a href="{% url 'login' %}">Login</a></li>
-                                <li><a herf="{% url 'accounts:register' %}">Register</a>
-                                </li>
+                                <!-- <li><a href="{% url 'accounts:register' %}">Register</a>
+                                </li> -->
+                                <li><a href="{% url 'accounts:EsportsRegister' %}">Esports Registrations</a></li>
                             {% endif %}
                         </ul>
                     </nav>
@@ -222,20 +247,51 @@
     </div>
   </body>
 </html>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
     function topbar2() {
  document.getElementsByTagName("header")[0].setAttribute("style", "background-color: rgba(255,255,255,0);border-bottom:none;");
     }
     function topbar() {
         var scrollTop = $(this).scrollTop();
-        console.log(scrollTop)
         if (scrollTop <= 0) {
             console.log("top");
             document.getElementsByTagName("header")[0].setAttribute("style", "background-color: rgba(255,255,255,0);border-bottom:none;");
         } else if (scrollTop > 200) {
-            document.getElementsByTagName("header")[0].setAttribute("style", "background-color: #232020;border-bottom: solid 2px #ff7315;");
+            document.getElementsByTagName("header")[0].setAttribute("style", "background-color: #232020;border-bottom: solid 2px #ff518b;");
         }
 
 
     }
 </script>
+<script>
+$(document).ready(function() {
+
+// Gets the video src from the data-src on each button
+console.log(1);
+var $videoSrc;  
+$('.video-btn').click(function() {
+    $videoSrc = $(this).data( "src" );
+});
+console.log($videoSrc);
+$('#myModal').on('shown.bs.modal', function (e) {
+$("#video").attr('src',$videoSrc); 
+})
+$('#myModal').on('hide.bs.modal', function (e) {
+    $("#video").attr('src',$videoSrc); 
+}) 
+});
+  </script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>

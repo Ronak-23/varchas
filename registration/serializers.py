@@ -7,9 +7,3 @@ class TeamsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TeamRegistration
         fields = ['url', 'teamId', 'college', 'sport', 'score']
-
-class TeamsIdSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="registration:teamregistration-detail")
-    class Meta:
-        model = TeamRegistration
-        fields = ['url', 'teamId']

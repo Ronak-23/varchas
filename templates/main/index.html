@@ -327,19 +327,98 @@
       </p>
       <div class="buttons">
         {% if user.is_authenticated %}
-            {% if userprofile.teamId != None %}
-            <a href="{% url 'accounts:myTeam' %}"> <button>Team Details</button></a>
-            <a href="{% url 'accounts:joinTeam' %}" ><button>Join Team</button></a>
-           <a href="{% url 'registration:team' %}" ><button>Create Team</button></a>
+            {% if userprofile.teamId == None %}
+              <a href="#popup1"><button >Instructions</button></a>
+              <a href="{% url 'accounts:joinTeam' %}" ><button>Join Team</button></a>
+              <a href="{% url 'registration:team' %}" ><button>Create Team</button></a>
+            {% elif userprofile.teamId != None %}
+              <a href="{% url 'accounts:myTeam' %}"> <button>Team Details</button></a>
+              <a href="{% url 'main:payment' %}"><button>Payment</button></a>
+              {% if userprofile.user_type == None %}
+              <a href="{% url 'accounts:leaveTeam' %}"><button>Leave Team</button></a>
+              {% endif %}
             {% endif %}
             {% else %}
-            <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>
-            <a><button>Instructions</button></a></div>
-            </div>
+              <a href="{% url 'accounts:register' %}" ><button>Register as Player</button></a>
+              <a href="{% url 'accounts:EsportsRegister' %}" ><button>Register for Esports</button></a>
+              <a href="#popup1"><button >Instructions</button></a>
             {% endif %}
-        
-        
-        
+      </div>
+      <svg
+        width="300"
+        height="1.5"
+        viewBox="0 0 300 1.5"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line y1="1.5" x2="300" y2="1.5" stroke="white" stroke-width="1.5" />
+      </svg>
+
+      <p id="second">
+        “Training gives us an outlet for suppressed energies created by stress
+        and thus tones the spirit just as exercise conditions the body.”
+      </p>
+      <h3>-Arnold Schwarzenegger</h3>
+    </div>
+    <div id="popup1" class="overlay-pop" style="z-index: 10000;">
+      <div class="popup">
+        <h3>Step by step guide</h3><br>
+        <a class="close" href="#about">&times;</a>
+        <div class="content">
+          <ol>
+            <li dir="ltr">
+              <p dir="ltr">
+                Register to create an account.
+              </p>
+            </li>
+            <li dir="ltr">
+              <p dir="ltr">
+                Log into your account.
+              </p>
+            </li>
+            <li dir="ltr">
+              <p dir="ltr">
+                For the captain (or individual sports):
+              </p>
+            </li>
+            <ol>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Create a team by clicking on the “Create Team” button found on the navbar.
+                </p>
+              </li>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Obtain the VA number by successfully creating a team. (Eg:
+                  VA-ATH-HAR00)
+                </p>
+              </li>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Share the VA number with your team.
+                </p>
+              </li>
+            </ol>
+            <li dir="ltr">
+              <p dir="ltr">
+                For other team members:
+              </p>
+            </li>
+            <ol>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Click “Join Team” button found on the navbar and enter the VA number of the team.
+                </p>
+              </li>
+            </ol>
+            <li dir="ltr">
+              <p dir="ltr">
+                Get Your Game On!
+              </p>
+            </li>
+          </ol>
+
+        </div>
       </div>
       <svg
         width="300"
@@ -358,22 +437,28 @@
       <h3>-Arnold Schwarzenegger</h3>
     </div>
     <div class="cards">
-      <div class="card">
+      <a href="{% url 'events:cricket' %}"><<div class="card">
         CRICKET
-        <img src="{% static 'images/cricket.png' %}" alt="" />
+        <img src="{% static 'images/home/cricket.png' %}" alt="" />
       </div>
-      <div class="card">
+      
+      <a href="{% url 'events:football' %}"><div class="card">
         FOOTBALL
-        <img src="{% static 'images/football.png' %}" alt="" />
-      </div>
-      <div class="card">ATHLETICS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
-      <div class="card">BADMINTON<img src="{% static 'images/badminton.png' %}" alt="" /></div>
-      <div class="card">BASKETBALL<img src="{% static 'images/cricket.png' %}" alt="" /></div>
-      <div class="card">CHESS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
-      <div class="card">TABLE TENNIS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
-      <div class="card">TENNIS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
-      <div class="card">VOLLEYBALL<img src="{% static 'images/cricket.png' %}" alt="" /></div>
-      <div class="card">INFORMALS<img src="{% static 'images/cricket.png' %}" alt="" /></div>
+        <img src="{% static 'images/home/football.png' %}" alt="" />
+      </div></a>
+      
+      <a href='{% url "events:athletics" %}'>
+        <div class="card">ATHLETICS<img src="{% static 'images/home/athletics.png' %}" alt="" /></div>
+      </a>
+      <a href="{% url 'events:badminton' %}"><div class="card">BADMINTON<img src="{% static 'images/home/badminton.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:basketball' %}"><div class="card">BASKETBALL<img src="{% static 'images/home/bb.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:chess' %}"><div class="card">CHESS<img src="{% static 'images/home/chess.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:TT' %}"><div class="card">TABLE TENNIS<img src="{% static 'images/home/tt.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:tennis' %}"> <div class="card">TENNIS<img src="{% static 'images/home/tennis.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:volleyball' %}"> <div class="card">VOLLEYBALL<img src="{% static 'images/home/vb.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:valorant' %}"> <div class="card">VALORANT<img src="{% static 'images/home/valo.png' %}" alt="" /></div></a>
+      <a href="{% url 'events:bgmi' %}"> <div class="card">BGMI<img src="{% static 'images/home/bgmi.png' %}" alt="" /></div></a>
+      <div class="card">INFORMALS<img src="{% static 'images/home/informals.png' %}" alt="" /></div>
     </div>
     <div class="reg">
       <h1>Do you have it in you?&nbsp;<b>REGISTER NOW.</b></h1>
@@ -402,15 +487,19 @@
       <div class="icon">
         <div class="ic">
           <img src="{% static 'images/ic1.png' %}" alt="" />
-          <h3>Akshansh Verma 8287527315</h3>
-          <h3>Utkarsh Pandey 8957662202</h3>
+          <h3>Akshansh Verma</h3>
+           <a href="tel:+918287527315"><h3>8287527315</h3></a>
+          <h3>Utkarsh Pandey</h3>
+          <a href="tel:+918957662202"><h3>8957662202</h3></a>
+          <h3>Buruka Nikhitha</h3>
+          <a href="tel:+919390194442"><h3>9390194442</h3></a>
         </div>
         <div class="ic">
           <img src="{% static 'images/ic2.png' %}" alt="" />
-          <h3>pr_varchas@iitj.ac.in</h3>
+          <a href="mailto:pr_varchas@iitj.ac.in"><h3>pr_varchas@iitj.ac.in</h3></a>
         </div>
         <div class="ic">
-          <img src="{% static 'images/ic3.png' %}" alt="" />
+          <a href="https://www.google.com/maps/place/Indian+Institute+of+Technology+Jodhpur/@26.4709977,73.1112805,17z/data=!3m1!4b1!4m5!3m4!1s0x39418c5ea672337b:0xb6c9a5a9b08db22e!8m2!3d26.4709977!4d73.1134692"><img src="{% static 'images/ic3.png' %}" alt="" /></a>
           <h3>Indian Institute of Technology Jodhpur</h3>
         </div>
       </div>

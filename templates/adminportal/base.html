@@ -29,6 +29,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 </head>
 
@@ -81,13 +83,10 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            
-
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'adminportal:dcas' %}">
-                    <i class="fa fa-user"></i>
-                    <span>CAs</span>
+                <a class="nav-link" href="{% url 'adminportal:deteams' %}">
+                    <i class="fa fa-users"></i>
+                    <span>Registered Esports-Teams</span>
                 </a>
             </li>
 
@@ -100,6 +99,18 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'events:add_match' %}">
+                    <i class="fa fa-vcard"></i>
+                    <span>Add Match</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'adminportal:uscore' 0 %}">
+                    <i class="fa fa-vcard"></i>
+                    <span>Update Score</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'adminportal:mail' %}">
                     <i class="fa fa-envelope"></i>
@@ -164,6 +175,7 @@
 
                     {% endblock %}
                 </div>
+                </script>
                 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
                 <script src="{% static 'js/main.js' %}"></script>
                 <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>

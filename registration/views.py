@@ -1,5 +1,5 @@
 from django.views.generic import CreateView
-from .forms import CampusAmbassadorForm, TeamRegistrationForm, RemovePlayerForm
+from .forms import TeamRegistrationForm, RemovePlayerForm
 from django.shortcuts import get_object_or_404
 from accounts.models import UserProfile
 from django.http import HttpResponse
@@ -8,13 +8,9 @@ from .models import TeamRegistration
 from django.core.mail import send_mail
 from django.views.generic import FormView
 from django.contrib.auth.models import User
-
-
-class CampusAmbassadorRegisterView(CreateView):
-    template_name = 'registration/ca_reg.html'
-    success_url = '/'
-    form_class = CampusAmbassadorForm
-
+from rest_framework import viewsets
+from .serializers import TeamsSerializer
+from rest_framework import permissions
 
 class TeamFormationView(CreateView):
     form_class = TeamRegistrationForm
@@ -31,6 +27,22 @@ class TeamFormationView(CreateView):
                 message += "\nYou have to register again to join another team. \nContact Varchas administrators."
                 return HttpResponse(message, content_type="text/plain")
             team = form.save()
+            # if team.sport == '5':
+            #     message = "Registration for Cricket has been closed."
+            #     team.delete()
+            #     return HttpResponse(message, content_type="text/plain")
+            # if ((team.sport == '3' or team.sport == '9') and user.gender == 'M'):
+            #     message = "Registration for Volleyball(M) and basketball(M) has been closed."
+            #     team.delete()
+            #     return HttpResponse(message, content_type="text/plain")
+            # if team.sport == '6':
+            #     message = "Registration for Football has been closed."
+            #     team.delete()
+            #     return HttpResponse(message, content_type="text/plain")
+            if team.sport == '4':
+                message = "Registration for Chess will reopen soon."
+                team.delete()
+                return HttpResponse(message, content_type="text/plain")
             spor = TeamRegistration.SPORT_CHOICES[int(team.sport)-1][1][:3]
             team.teamId = "VA-" + spor[:3].upper() + '-' + user.user.username[:3].upper() + "{}".format(int(random()*100))
             team.captian = user
@@ -80,3 +92,9 @@ class removePlayerView(FormView):
         userList.remove(team.captian)
         context['players'] = userList
         return context
+
+
+class TeamViewSet(viewsets.ModelViewSet):
+    queryset = TeamRegistration.objects.all()
+    serializer_class = TeamsSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)

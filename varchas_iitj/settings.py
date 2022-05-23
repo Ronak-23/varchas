@@ -1,4 +1,5 @@
 import os
+from decouple import config
 
 import environ
 
@@ -10,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')(ua(wy^=az#k^%=qpszc%ltzx0j5%7n2rzfuj*ysqjn^g!hl)'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -162,6 +163,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 APPEND_SLASH = True
 
+<<<<<<< HEAD
 # SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 # SENDGRID_API_KEY = "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"
 SENDGRID_API_KEY = env('SENDGRID_API_KEY')
@@ -171,8 +173,16 @@ EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'noreply@mymtasmtp.ml'
+=======
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+>>>>>>> fba2faa2f3533e370c7636ab05fa7f49226d9d62
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 100
 }

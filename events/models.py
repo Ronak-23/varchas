@@ -10,11 +10,16 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Event(models.Model):
 
     VENUE_CHOICES = (
-    ('1', 'Football Ground'),
+    ('1', 'IITJ Football Ground'),
     ('2', 'Volleyball Ground'),
     ('3', 'Tennis Ground'),
-    ('4', 'Badminton Ground'),
+    ('4', 'Indoor sports Complex'),
     ('5', 'Lecture Hall Complex'),
+    ('6', 'Spartan Cricket Ground'),
+    ('7', 'Pathan Cricket Academy'),
+    ('8', 'VIRU Cricket Academy'),
+    ('9', 'SNMC Cricket Ground'),
+    ('10', 'Ummed Football Stadium'),
     )
     EVENT_CHOICES = (
     ('1', 'Athletics'),
@@ -23,18 +28,17 @@ class Event(models.Model):
     ('4', 'Chess'),
     ('5', 'Cricket'),
     ('6', 'Football'),
-    ('7', 'Table Tenis'),
-    ('8', 'Tenis'),
+    ('7', 'Table Tenins'),
+    ('8', 'Tennis'),
     ('9', 'Volleyball'),
-    ('10', 'Marathon'),
+    ('10', 'Badminton-Mixed doubles'),
     ('11', 'SOCH'),
-    ('12', 'Squash'),
     )
     event = models.CharField(max_length=2, choices=EVENT_CHOICES, default=1)
     venue = models.CharField(max_length=3, choices=VENUE_CHOICES)
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
-    event_id = models.CharField(max_length=4, default="NAN")
+    event_id = models.CharField(max_length=20, default="NAN")
     organisers = models.ManyToManyField(AdminProfile, blank=True)
     max_team_size = models.PositiveSmallIntegerField(default=1, help_text='Leave 1 for single participant event')
     about = RichTextUploadingField()
@@ -164,3 +168,70 @@ class Squash(models.Model):
 
     def qscore(self):
         return [self.t1s1, self.t1s2, self.t1s3, self.t1s4, self.t1s5, self.t2s1, self.t2s2, self.t2s3, self.t2s4, self.t2s5]
+
+
+class Badminton(models.Model):
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
+    t1s1 = models.SmallIntegerField(default=0)
+    t2s1 = models.SmallIntegerField(default=0)
+    t1s2 = models.SmallIntegerField(default=0)
+    t2s2 = models.SmallIntegerField(default=0)
+    t1s3 = models.SmallIntegerField(default=0)
+    t2s3 = models.SmallIntegerField(default=0)
+    t1sw = models.SmallIntegerField(default=0)
+    t2sw = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.match.event_id
+
+    def score(self):
+        return [self.t1sw, self.t2sw]
+
+    def qscore(self):
+        return [self.t1s1, self.t1s2, self.t1s3, self.t2s1, self.t2s2, self.t2s3]
+
+
+class TT(models.Model):
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
+    t1s1 = models.SmallIntegerField(default=0)
+    t2s1 = models.SmallIntegerField(default=0)
+    t1s2 = models.SmallIntegerField(default=0)
+    t2s2 = models.SmallIntegerField(default=0)
+    t1s3 = models.SmallIntegerField(default=0)
+    t2s3 = models.SmallIntegerField(default=0)
+    t1sw = models.SmallIntegerField(default=0)
+    t2sw = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.match.event_id
+
+    def score(self):
+        return [self.t1sw, self.t2sw]
+
+    def qscore(self):
+        return [self.t1s1, self.t1s2, self.t1s3, self.t2s1, self.t2s2, self.t2s3]
+
+
+class Tennis(models.Model):
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
+    t1s1 = models.SmallIntegerField(default=0)
+    t2s1 = models.SmallIntegerField(default=0)
+    t1s2 = models.SmallIntegerField(default=0)
+    t2s2 = models.SmallIntegerField(default=0)
+    t1s3 = models.SmallIntegerField(default=0)
+    t2s3 = models.SmallIntegerField(default=0)
+    t1s4 = models.SmallIntegerField(default=0)
+    t2s4 = models.SmallIntegerField(default=0)
+    t1s5 = models.SmallIntegerField(default=0)
+    t2s5 = models.SmallIntegerField(default=0)
+    t1sw = models.SmallIntegerField(default=0)
+    t2sw = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.match.event_id
+
+    def score(self):
+        return [self.t1sw, self.t2sw]
+
+    def qscore(self):
+        return [self.t1s1, self.t1s2, self.t1s3, self.t2s1, self.t2s2, self.t2s3, self.t1s4, self.t1s5, self.t2s4, self.t2s5]
