@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Varchas is the annual sports festival of IIT Jodhpur, varchas  has grown to become the largest and one of the most awaited sports festival of north west India.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios-filled/344/sports-mode.png">
+    <title>Varchas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+
+        <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet"
+              type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.theme.default.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/animate.css' %}">
+         <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/animate.css' %}">
+    <link
+      href="http://fonts.cdnfonts.com/css/post-no-bills-jaffna"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .close{
+      position:absolute;
+      right:5vmin;
+      top:5vmin; 
+    }
+    .close button{
+        font-size:2rem;
+        color:white;
+        font-weight: 800;
+        background:none;
+        border:none;
+       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+       transition: 0.3s linear;
+    }
+    .close button:hover{
+      text-shadow: none;
+      cursor:pointer;
+    }
+    </style>
+  </head>
+  <body>
+  <div>
+    <div class="cards" style="height:100vh">
+      <div class="close"><a href="{% url 'main:home' %}"><button>X</button></a></div>
+      <a href="{% url 'accounts:EsportsRegisterValorant' %}"><div class="card">
+        VALORANT
+        <img src="{% static 'images/home/valo.png' %}" alt="" />
+      </div>
+      
+      <a href="{% url 'accounts:EsportsRegisterBGMI' %}"><div class="card">
+        BGMI
+        <img src="{% static 'images/home/bgmi.png' %}" alt="" />
+      </div></a>
+      
+      <a href='{% url "accounts:EsportsRegisterChess" %}'>
+        <div class="card">CHESS<img src="{% static 'images/home/chess.png' %}" alt="" /></div>
+      </a>
+    </div>
+  </div>
+  </body>
+  
+  
+</html>

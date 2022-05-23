@@ -1,0 +1,49 @@
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment</title>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section>
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="circle"></div>
+      <div class="main">
+        <a href="{% url 'main:home' %}"><div class="close"><button>X</button></div></a>
+        {% if amount == None %}
+          <h3>Please Register for an event first.</h3>
+        {% elif captain == False %}
+        <h2>Please ask your captain to complete your payment. Ignore if already done.</h2>
+        {% else %}
+        <h2>{{sports}}: INR {{amount}}</h2>
+        <h2>{% if userprofile.user_type == None %}Accommodation: INR 1099/player (If applicable){% endif %}</h2>
+        <a href="{%url 'main:paymentCF' %}"><button>PAY NOW</button></a>
+        <h2 style="color: red;">Instructions: Please select one ticket for the sport you are taking part in and the no. of tickets required for accomodation for your whole team.</h2>
+        <h2 style="font-weight: bolder;">Refrain from payment if already paid.</h2>
+        <h2>If you have already paid your payment will be verified within 24 hours.</h2>
+        {% endif %}
+      </div>
+    </section>
+
+    <script type="text/javascript">
+      const pos = document.documentElement;
+      pos.addEventListener("mousemove", (e) => {
+        pos.style.setProperty("--x", e.clientX + "px");
+        pos.style.setProperty("--y", e.clientY + "px");
+      });
+    </script>
+  </body>
+</html>
+{% endblock %}

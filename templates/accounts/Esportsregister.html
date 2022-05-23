@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}" />
+  </head>
+  <body>
+    <div class="wrap">
+      <a href="{% url 'main:home' %}"><div class="close"><button>X</button></div></a>
+      <div class="main">
+        <div class="form">
+          <form  method="post" id="login" autocomplete="off">
+            {% csrf_token %} {% for field in form %} {% if field.label == "State" or field.label == "Gender" or field.label == "Current year" or field.label == "Accommodation required" or field.label == "Sport" %}
+            <input autocomplete="false" name="hidden" type="text" style="display:none;">
+                    <div style="padding-top: 1vh; padding-bottom: 2vh;">
+                        {{ field.label }}{% if field.field.required %}*{% endif %} : {{ field }}
+                    </div>
+                    {% elif field.label == "Username" %} {# {% elif %}#} {# {{field.label }}{% if field.field.required %}*{% endif %}:{{ field}}<br /><br />#}
+                    {% elif field.label == "Lichess id" %}
+                    <div>
+                      <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                        {{ field.label }}{% if field.field.required %}*{% endif %} :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="Lichess id"
+                        />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                          <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+                        </span>  
+                      </div>
+                    </div>
+                    {% elif field.label == "Chesscom id" %}
+                    <div>
+                      <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                        Chess.com id :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="Chess.com id"
+                        />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                          <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+                        </span>  
+                      </div>
+                    </div>
+                    {% elif field.label == "Member 2 ingame id" or field.label == "Member 3 ingame id" or field.label == "Member 4 ingame id" or field.label == "Member 5 ingame id" or field.label == "Member 6 ingame id" or field.label == "Captain ingame id" %}
+                    <div>
+                      <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                        {{ field.label }}{% if field.field.required %}*{% endif %} :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="e.g. NAME#1234"
+                        />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                          <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+                        </span>  
+                      </div>
+                    </div>
+                    {% elif field.label == "Member 2 peak rank" or field.label == "Member 3 peak rank" or field.label == "Member 4 peak rank" or field.label == "Member 5 peak rank" or field.label == "Member 6 peak rank" or field.label == "Captain peak rank" %}
+                    <div>
+                      <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                        {{ field.label }}{% if field.field.required %}*{% endif %} :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="e.g. Gold 1"
+                        />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                          <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+                        </span>  
+                      </div>
+                    </div>
+                    {% elif field.label == "Member 2 character id" or field.label == "Member 3 character id" or field.label == "Member 4 character id" or field.label == "Member 5 character id" or field.label == "Member 6 character id" or field.label == "Captain character id" %}
+                    <div>
+                      <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                        {{ field.label }}{% if field.field.required %}*{% endif %} :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="e.g. 567804141"
+                        />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                          <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+                        </span>  
+                      </div>
+                    </div>
+                    {% elif field.label == "Member 2 ingame name" or field.label == "Member 3 ingame name" or field.label == "Member 4 ingame name" or field.label == "Member 5 ingame name" or field.label == "Member 6 ingame name" or field.label == "Captain ingame name" %}
+                    <div>
+                      <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                        {{ field.label }}{% if field.field.required %}*{% endif %} :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="e.g. NAME"
+                        />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                          <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+                        </span>  
+                      </div>
+                    </div>
+                    {% elif field.field.required or field.label == "Member 6 name"  %}  
+                    <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                        {{ field.label }}{% if field.field.required %}*{% endif %} :
+                        <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="{{ field.label }}{% if field.field.required %}*{% endif %}"
+                        />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+							<i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+						</span>
+                    </div>
+                    {% else %}
+                  <div>
+                    <div class="wrap-input100" style="position: relative; padding-top: 1vh; padding-bottom: 2vh;">
+                      {{ field.label }}{% if field.field.required %}*{% endif %} :
+                      <input class="input100" type="{{ field.field.widget.input_type }}" value="{% if field.value != NULL %}{{ field.value }}{% endif %}" name="{{ field.name }}" placeholder="Email-id"
+                      />
+                      <span class="focus-input100"></span>
+                      <span class="symbol-input100">
+                        <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+                      </span>  
+                    </div>
+                  </div>
+                    {% endif %} {% for error in field.errors %}
+                    <div class="alert alert-danger" style="color:red">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %} {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger" style="color:red">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %} {% endfor %} {% if messages %} {% for message in messages %} {% if 'register-success' in message.tags %}
+                    <div class="form-header green mb-4" style="color:green">{{ message }}</div>
+                    {% endif %} {% endfor %} {% endif %}
+                    <input type="submit" value="REGISTER" />
+                </form>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+    <script>
+        $(".js-tilt").tilt({
+            scale: 1.1,
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+
+<script>
+  $(".input100").focus(function() {
+    var height = $("body").css('height');
+    $("body").css('height', height);
+});
+</script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>

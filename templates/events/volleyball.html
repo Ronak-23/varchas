@@ -1,0 +1,177 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+  body {
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #000011;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("{% static 'images/home/vb.png' %}");
+  background-color: #000011;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 60%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: flex-start; */
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.main img {
+  width: 40%;
+}
+.inner {
+  margin: 0;
+  padding: 0;
+}
+.inner h1 {
+  color: white;
+  font-family: Roboto Mono, monospace;
+  font-size: 2.4rem;
+  margin: 0;
+  padding: 0;
+}
+.btn {
+  margin-top: 10vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute;
+  bottom: 15vh; */
+}
+.btn button {
+  width: 30%;
+  height: 10vmin;
+  background: rgba(0, 16, 239, 0.719);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 1);
+  border: none;
+  color: white;
+  font-family: Roboto Mono, monospace;
+  font-size: 1.5rem;
+  font-weight: 450;
+}
+.btn button:hover {
+  cursor: pointer;
+  box-shadow: none;
+  background: rgba(38, 52, 255, 0.719);
+}
+
+@media screen and (max-width: 1000px) {
+  .bg {
+    background-size: 100%;
+    /* height: 50vh; */
+  }
+  .main {
+    align-items: center;
+    justify-content: center;
+  }
+  .main img {
+    width: 60%;
+  }
+  /* .btn {
+    align-items: flex-start;
+    justify-content: center;
+    top: 35vh;
+  } */
+  .btn button {
+    width: 50%;
+    font-size: 2.2rem;
+  }
+}
+.neonText {
+  animation: flicker 1.5s infinite alternate;
+  color: #fff;
+  text-align: center;
+}
+@keyframes flicker {
+    
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px rgb(204, 0, 255),
+        0 0 80px rgb(255, 0, 200),
+        0 0 90px rgb(255, 0, 149),
+        0 0 100px rgb(255, 0, 106),
+        0 0 150px rgb(225, 0, 255);
+    
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+    }    
+}
+@media screen and (min-width: 520px) {
+  .bg {
+    /* max-height: 100vh; */
+  }
+  .inner h1 {
+    font-size: 1.6rem;
+  }
+  .btn button {
+    font-size: 1rem;
+  }
+  .btn {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .inner h1 {
+    font-size: 1.6rem;
+  }
+  .btn button {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 290px) {
+  .inner h1 {
+    font-size: 0.9rem;
+  }
+  .btn button {
+    font-size: 0.9rem;
+  }
+}
+
+</style>
+
+<body>
+  <div class="bg">
+    <div class="main">
+      <img src="{% static 'images/events/volleyball.png' %}" alt="" />
+      <div class="inner">
+        <h1 class="neonText" style="font-size:60px;">PRIZES: WORTH 40k </h1>
+      </div>
+    </div>
+    <a href="{% static 'Rules/Volleyball.pdf' %}"><div class="btn"><button>RULEBOOK</button></div></a>
+    <a href="{% url 'events:fixtures' 8 %}"><div class="btn"><button value="5" name="sport">Fixtures and leaderboard</button></div></a>
+  </div>
+</body>
+{% endblock %}
